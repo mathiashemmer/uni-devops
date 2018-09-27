@@ -18,6 +18,11 @@
       SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     }
 
+    void clearScreen()
+    {
+        system("cls");
+    }
+
 #endif
 
 #ifdef __unix__
@@ -28,15 +33,16 @@
     #include <stdio.h>
     #include <string.h>
 
-    void gotoxy(int x, int y)
+    void gotoxy(int x,int y)
     {
-        COORD coord;
-        coord.X = x;
-        coord.Y = y;
-        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+        printf("%c[%d;%df",0x1B,y,x);
     }
+
+    void clearScreen()
+    {
+        cout << "\033[2J\033[1;1H";
+    }
+
 #endif
-
-
 
 #endif // EDUCORE_H

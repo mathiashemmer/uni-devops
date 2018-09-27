@@ -22,7 +22,7 @@ bool Queue_Start(Queue<T> &queue){
 }
 
 template<typename T>
-bool Queue_isEmpty(Queue<T> queue){
+bool Queue_IsEmpty(Queue<T> queue){
     return queue.size == 0;
 }
 
