@@ -23,4 +23,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    ../EstruturaDeDados/educore.h
+    ../libs/educore.h \
+    ../libs/queue.h
