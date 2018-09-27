@@ -87,6 +87,11 @@ void PreencheCaixas(Queue<Pessoa> caixa[], Queue<Pessoa> &filaOriginal, int qtdP
     }
 }
 
+void printMacaco(string especie)
+{
+    cout << especie << endl;
+}
+
 int main(){
     int qtdCaixas, qtdClientes, ppPorUn, unPorCiclo;
     /*
