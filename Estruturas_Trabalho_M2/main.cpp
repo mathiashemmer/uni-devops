@@ -1,6 +1,6 @@
 #include <iostream>
-#include <../EstruturaDeDados/queue.h>
-#include <../EstruturaDeDados/educore.h>
+#include <../lib/queue.h>
+#include <../lib/educore.h>
 
 using namespace std;
 
@@ -29,7 +29,7 @@ string gerarNome()
  * Preeche as pessoas do sistema, segundo a proporção:
  * 50% exige 1un tempo para atendimento
  * 30% exige 4un tempo para atendimento
- * 20% exige 2un tempo para atendimento
+ * 20% exige 6un tempo para atendimento
  * Randomizando no final no final a ordem dos registros
  * para inserir na lista de pessoas a serem colocadas nos caixas
  */
@@ -100,7 +100,7 @@ void PreencheCaixas(Queue<Pessoa> caixa[], Queue<Pessoa> &filaOriginal, int qtdP
 }
 
 int main(){
-    int qtdCaixas, qtdClientes, ppPorUn, unPorCiclo;
+    int qtdCaixas, qtdClientes, ppPorUn, totCiclos;
     /*
      * qtdCaixas     -> Quantidade de caixas/filas disponiveis
      * qtdClientes   -> Numero total de clientes no sistema
@@ -110,29 +110,30 @@ int main(){
     cout << "Informe a quantidade de caixas: " << endl;
     cout << "Informe a quantidade total de clientes: " << endl;
     cout << "Informe a quantidade de pessoas que entram:" << endl;
-    cout << "Informe a quantidade de tempo percorrido por enter: " << endl;
+    cout << "Informe a quantidade de tempo da simulacao: " << endl;
     gotoxy(32, 0);
     cin >> qtdCaixas;
     gotoxy(40, 1);
     cin >> qtdClientes;
     gotoxy(44, 2);
     cin >> ppPorUn;
-    gotoxy(52, 3);
-    cin >> unPorCiclo;
+    gotoxy(44, 3);
+    cin >> totCiclos;
 
     Queue<Pessoa> filaOriginal;
     Queue_Start(filaOriginal);
     PreenchePessoas(filaOriginal, qtdClientes);
 
-    system("cls");
-    int ppNasFilas[qtdCaixas];
-    PreenchePessoasNosCaixas(ppNasFilas, qtdClientes, qtdCaixas);
-
     Queue<Pessoa> filaCaixas[qtdCaixas];
     for(int i = 0; i < qtdCaixas; i++){
         Queue_Start(filaCaixas[i]);
     }
+
+    system("cls");
+
+    int ppNasFilas[qtdCaixas];
+    PreenchePessoasNosCaixas(ppNasFilas, qtdClientes, qtdCaixas);
     PreencheCaixas(filaCaixas, filaOriginal, ppNasFilas, qtdCaixas);
 
-
+    string s = "joaobundao";
 }
