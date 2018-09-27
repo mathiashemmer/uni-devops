@@ -124,7 +124,9 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../Estruturas_Trabalho_M2/Estruturas_Trabalho_M2.pro ../lib/educore.h ../Estruturas_Trabalho_M2/main.cpp
+		../Estruturas_Trabalho_M2/Estruturas_Trabalho_M2.pro ../lib/educore.h \
+		../lib/queue.h \
+		../Estruturas_Trabalho_M2/supermarket.h ../Estruturas_Trabalho_M2/main.cpp
 QMAKE_TARGET  = Estruturas_Trabalho_M2
 DESTDIR       = 
 TARGET        = Estruturas_Trabalho_M2
@@ -300,7 +302,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../lib/educore.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../lib/educore.h ../lib/queue.h ../Estruturas_Trabalho_M2/supermarket.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../Estruturas_Trabalho_M2/main.cpp $(DISTDIR)/
 
 
