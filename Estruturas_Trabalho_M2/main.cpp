@@ -9,6 +9,17 @@ struct Pessoa{
     int tempoPassado;
 };
 
+string gerarNome()
+{
+    string silabas[] = {"ba", "be", "bi", "bo", "bu", "ca", "ce", "ci", "co", "cu", "da", "de", "di", "do", "du",
+                        "fa", "fe", "fi", "fo", "fu", "ga", "ge", "gi", "go", "gu", "ja", "je", "ji", "jo", "ju",
+                        "la", "le", "li", "lo", "lu", "ma", "me", "mi", "mo", "mu", "na", "ne", "ni", "no", "nu",
+                        "pa", "pe", "pi", "po", "pu", "ra", "re", "ri", "ro", "ru", "sa", "se", "si", "so", "su",
+                        "ta", "te", "ti", "to", "tu", "va", "ve", "vi", "vo", "vu", "xa", "xe", "xi", "xo", "xu",
+                        "za", "ze", "zi", "zo", "zu"};
+
+}
+
 /* void PreenchePessoas
  * Preeche as pessoas do sistema, segundo a proporção:
  * 50% exige 1un tempo para atendimento
