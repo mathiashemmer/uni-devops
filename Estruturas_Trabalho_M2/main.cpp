@@ -2,6 +2,10 @@
 #include <../EstruturaDeDados/queue.h>
 #include <../EstruturaDeDados/educore.h>
 
+void Macaca(){
+    int a = 1;
+}
+
 using namespace std;
 
 struct Pessoa{
