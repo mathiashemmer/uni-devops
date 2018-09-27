@@ -130,5 +130,5 @@ int main(){
     PreenchePessoasNosCaixas(ppNasFilas, qtdClientes, qtdCaixas);
     PreencheCaixas(filaCaixas, filaOriginal, ppNasFilas, qtdCaixas);
 
-
+    string s = "joaobundao";
 }
