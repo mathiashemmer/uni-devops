@@ -2,10 +2,6 @@
 #include <../EstruturaDeDados/queue.h>
 #include <../EstruturaDeDados/educore.h>
 
-void Macaca(){
-    int a = 1;
-}
-
 using namespace std;
 
 struct Pessoa{
@@ -85,11 +81,6 @@ void PreencheCaixas(Queue<Pessoa> caixa[], Queue<Pessoa> &filaOriginal, int qtdP
             Queue_Insert(caixa[i], p);
         }
     }
-}
-
-void printMacaco(string especie)
-{
-    cout << especie << endl;
 }
 
 int main(){
