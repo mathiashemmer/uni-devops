@@ -4,12 +4,6 @@
 
 using namespace std;
 
-struct Customer{
-    int timeStamp;
-    int timeElapsed;
-    string name;
-};
-
 string GenerateName()
 {
     srand(time(NULL));
@@ -29,8 +23,6 @@ string GenerateName()
     name[0] = toupper(name[0]);
     return name;
 }
-
-
 
 int main()
 {
