@@ -3,7 +3,7 @@
 #include <../EstruturaDeDados/educore.h>
 
 void Macaca(){
-    int b = 1;
+    int a = 1;
 }
 
 using namespace std;
