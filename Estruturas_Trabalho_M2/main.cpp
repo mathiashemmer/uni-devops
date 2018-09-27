@@ -17,7 +17,12 @@ string gerarNome()
                         "pa", "pe", "pi", "po", "pu", "ra", "re", "ri", "ro", "ru", "sa", "se", "si", "so", "su",
                         "ta", "te", "ti", "to", "tu", "va", "ve", "vi", "vo", "vu", "xa", "xe", "xi", "xo", "xu",
                         "za", "ze", "zi", "zo", "zu"};
-
+    nSilabas = (rand % 2) + 2;
+    string nome;
+    for(int i = 0; i < nSilabas; i++)
+    {
+        nome = nome
+    }
 }
 
 /* void PreenchePessoas
