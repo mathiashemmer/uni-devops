@@ -350,7 +350,8 @@ compiler_clean: compiler_moc_predefs_clean
 ####### Compile
 
 main.o: ../Estruturas_Trabalho_M2/main.cpp ../lib/queue.h \
-		../lib/educore.h
+		../lib/educore.h \
+		../Estruturas_Trabalho_M2/supermarket.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Estruturas_Trabalho_M2/main.cpp
 
 ####### Install

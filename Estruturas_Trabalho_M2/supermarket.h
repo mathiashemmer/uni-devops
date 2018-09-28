@@ -57,15 +57,24 @@ void PrintClerkStatus(Queue<Customer> queue)
 {
     if(queue.size == 0)
     {
-        std::cout << "----------------------------" << endl;
-        std::cout << "Caixa vazio" << endl;
+        std::cout << "---------------------------------------" << std::endl;
+        std::cout << "Caixa vazio" << std::endl;
     }
     else
     {
-        std::cout << "----------------------------" << endl;
-        std::cout << "Númeerrrrro de clientes na fila: " << queue.size << std::endl;
+        std::cout << "---------------------------------------" << std::endl;
+        std::cout << "Número de clientes na fila: " << queue.size << std::endl;
         std::cout << "Cliente sendo atendido:     " << queue.head->Data.name << std::endl;
         std::cout << "Tempo restante:             " << queue.head->Data.timeStamp - queue.head->Data.timeElapsed << std::endl;
+    }
+}
+
+// Imprime a situação atual de todos os caixas
+void PrintClerkStatusAll(Queue<Customer> queue[], int numClerks)
+{
+    for(int i = 0; i < numClerks; i++)
+    {
+        PrintClerkStatus(queue[i]);
     }
 }
 

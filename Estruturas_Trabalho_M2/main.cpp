@@ -40,5 +40,6 @@ int main()
 
     // A partir daqui, a simulação será iniciada
     clearScreen();
-    PrintClerkStatus(clerk[0]);
+    PrintClerkStatusAll(clerk, numClerks);
+    std::cout << "---------------------------------------" << std::endl;
 }
