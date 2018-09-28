@@ -57,13 +57,15 @@ void PrintClerkStatus(Queue<Customer> queue)
 {
     if(queue.size == 0)
     {
-        std::cout << "Caixa vazio\n";
+        std::cout << "----------------------------" << endl;
+        std::cout << "Caixa vazio" << endl;
     }
     else
     {
-        std::cout << "Número de clientes na fila: " << queue.size << std::endl;
-        std::cout << "Cliente sendo atendido: " << queue.head->Data.name << std::endl;
-        std::cout << "Tempo restante: " << queue.head->Data.timeStamp - queue.head->Data.timeElapsed << std::endl;
+        std::cout << "----------------------------" << endl;
+        std::cout << "Númeerrrrro de clientes na fila: " << queue.size << std::endl;
+        std::cout << "Cliente sendo atendido:     " << queue.head->Data.name << std::endl;
+        std::cout << "Tempo restante:             " << queue.head->Data.timeStamp - queue.head->Data.timeElapsed << std::endl;
     }
 }
 
