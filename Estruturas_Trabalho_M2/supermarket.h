@@ -76,6 +76,26 @@ void PrintClerkStatusAll(Queue<Customer> queue[], int numClerks)
     {
         PrintClerkStatus(queue[i]);
     }
+    std::cout << "---------------------------------------" << std::endl;
+}
+
+// Imprime mensagem de algum evento
+void PrintEvent(int n)
+{
+    if(n == 1)
+        cout << "Cliente atendido\n";
+    if(n == 0)
+        cout << "Cliente entrou na fila\n";
+}
+
+// Insere um cliente na fila mais vazia
+void InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks)
+{
+    int max = queue[0].size;
+    for(int i = 1; i < numClerks; i++)
+    {
+        if(queue[i].size > max)
+    }
 }
 
 #endif // SUPERMARKET_H

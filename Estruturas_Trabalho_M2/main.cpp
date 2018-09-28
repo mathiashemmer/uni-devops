@@ -9,7 +9,8 @@ int main()
 {
     // Inicializações, configurações e variáveis auxiliares
     srand(time(NULL));
-    int numClerks = 0, numStartingCustomers = 0, execTime = 0, customersPerUnit = 0;
+    int numClerks = 0, numStartingCustomers = 0, execTime = 0, timeUnitsPerCustomer = 0;
+    int timeElapsed = 0;
 
     // Leitura dos dados da simulação
     cout << "Digite o número de caixas ativos: ";
@@ -22,7 +23,7 @@ int main()
     cin >> execTime;
     clearScreen();
     cout << "Digite quantas pessoas entram por unidade de tempo: ";
-    cin >> customersPerUnit;
+    cin >> timeUnitsPerCustomer;
     clearScreen();
     // Fim da leitura
 
@@ -39,7 +40,25 @@ int main()
     }
 
     // A partir daqui, a simulação será iniciada
-    clearScreen();
-    PrintClerkStatusAll(clerk, numClerks);
-    std::cout << "---------------------------------------" << std::endl;
+    //PrintClerkStatusAll(clerk, numClerks);
+
+    while(timeElapsed < execTime)
+    {
+        cin.ignore();
+        timeElapsed++;
+        if(timeElapsed >= timeUnitsPerCustomer && timeElapsed % timeUnitsPerCustomer == 0)
+        {
+            /* chama função de colocar alguém no caixa com menos clientes */;
+            PrintEvent(0);
+        }
+        for(int i = 0; i < numClerks; i++)
+        {
+            clerk[i].head->Data.timeElapsed++;
+            if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp)
+            {
+                Queue_Pop(clerk[i]);
+                PrintEvent(1);
+            }
+        }
+    }
 }
