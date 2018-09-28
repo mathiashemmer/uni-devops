@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+#include <../lib/queue.h>
+#include <../lib/educore.h>
+
 struct Customer
 {
     int timeStamp;
@@ -47,6 +50,21 @@ Customer CreateCustomer()
     customer.timeElapsed = 0; // Todos os clientes iniciam com 0 segundos passados
 
     return customer; // Retorna a estrutura de dados encapsulada para a criação de um novo cliente
+}
+
+// Imprime a situação atual do caixa (quantas pessoas estão na fila, quem é o primeiro da fila e quanto tempo falta pra ele sair)
+void PrintClerkStatus(Queue<Customer> queue)
+{
+    if(queue.size == 0)
+    {
+        std::cout << "Caixa vazio\n";
+    }
+    else
+    {
+        std::cout << "Número de clientes na fila: " << queue.size << std::endl;
+        std::cout << "Cliente sendo atendido: " << queue.head->Data.name << std::endl;
+        std::cout << "Tempo restante: " << queue.head->Data.timeStamp - queue.head->Data.timeElapsed << std::endl;
+    }
 }
 
 #endif // SUPERMARKET_H
