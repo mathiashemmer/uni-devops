@@ -70,37 +70,47 @@ void PrintClerkStatus(Queue<Customer> queue)
 }
 
 // Imprime a situação atual de todos os caixas
-void PrintClerkStatusAll(Queue<Customer> queue[], int numClerks)
+void PrintClerkStatusAll(Queue<Customer> queue, int xOffSet, int currentClerk)
 {
-    for(int i = 0; i < numClerks; i++)
-    {
-        PrintClerkStatus(queue[i]);
+    int i = 0;
+    Node<Customer> *node = queue.head;
+    if(node->next != nullptr){
+        node = node->next;
+        gotoxy(xOffSet, i++);
+        std::cout << "Caixa: " << currentClerk;
+        while(node != nullptr){
+            gotoxy(xOffSet, i++);
+            std::cout << node->Data.name ;
+            gotoxy(xOffSet, i++);
+            std::cout << node->Data.timeStamp;
+            node = node->next;
+        }
     }
-    std::cout << "---------------------------------------" << std::endl;
 }
 
 // Imprime mensagem de algum evento
-void PrintEvent(int n)
-{
+void PrintEvent(int n, Customer eventSender)
+{   
     if(n == 1)
-        std::cout << "Cliente atendido\n";
+        std::cout << "Cliente " << eventSender.name << " atendido\n";
     if(n == 0)
-        std::cout << "Cliente entrou na fila\n";
+        std::cout << "Cliente " << eventSender.name << " entrou na fila\n";
 }
 
 // Insere um cliente na fila mais vazia
-void InsertClientOnSmallerQueue(Queue<Customer> queue[], Customer guyToInsert)
+Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks)
 {
-    int smallestQueue = 0, smlQueueSize = 0;
-    int numberOfQueues = sizeof(*queue)/sizeof(queue[0]);
-    for(int i = 1; i < numberOfQueues; i++)
+    int smallestQueue = 9999, smlQueueSize = 9999;
+    Customer newCustomer = CreateCustomer();
+    for(int i = 1; i < numClerks; i++)
     {
         if(queue[i].size < smlQueueSize){
             smallestQueue = i;
             smlQueueSize = queue[i].size;
         }
     }
-    Queue_Insert(queue[smallestQueue], guyToInsert);
+    Queue_Insert(queue[smallestQueue], newCustomer);
+    return newCustomer;
 }
 
 #endif // SUPERMARKET_H

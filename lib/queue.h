@@ -71,4 +71,5 @@ bool Queue_Peek(Queue<T> queue, T &container){
     }
     return false;
 }
+
 #endif // QUEUE_H

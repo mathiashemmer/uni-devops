@@ -23,6 +23,21 @@
         system("cls");
     }
 
+    void SetConsoleSize(int x, int y){
+        COORD coord;
+        coord.X = x;
+        coord.Y = y;
+
+        _SMALL_RECT rect;
+        rect.Top = 0;
+        rect.Left = 0;
+        rect.Bottom = y-1;
+        rect.Right = x-1;
+
+        SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+        SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, &rect);
+    }
+
 #endif
 
 #ifdef __unix__
