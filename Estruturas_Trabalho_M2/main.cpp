@@ -2,6 +2,7 @@
 #include <../lib/queue.h>
 #include <../lib/educore.h>
 #include <supermarket.h>
+#include <time.h>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ int main()
 
     // A partir daqui, a simulação será iniciada
     //PrintClerkStatusAll(clerk, numClerks);
-
+    Customer tmp;
     while(timeElapsed < execTime)
     {
         cin.ignore();
@@ -49,6 +50,7 @@ int main()
         if(timeElapsed >= timeUnitsPerCustomer && timeElapsed % timeUnitsPerCustomer == 0)
         {
             /* chama função de colocar alguém no caixa com menos clientes */;
+            InsertClientOnSmallerQueue(clerk, CreateCustomer());
             PrintEvent(0);
         }
         for(int i = 0; i < numClerks; i++)
@@ -56,7 +58,7 @@ int main()
             clerk[i].head->Data.timeElapsed++;
             if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp)
             {
-                Queue_Pop(clerk[i]);
+                Queue_Pop(clerk[i], tmp);
                 PrintEvent(1);
             }
         }
