@@ -7,14 +7,32 @@
 
 using namespace std;
 
+void PrintSimulationStatus(Queue<Customer> clerk[], int numClerks){
+    gotoxy(0,0);
+    for(int i = 0; i < numClerks; i++){
+        PrintClerkStatus(clerk[i]);
+    }
+    for(int i = 0; i < 5*numClerks; i++){
+        gotoxy(40, i);
+        cout << "|";
+    }
+    for(int i = 0; i < numClerks; i++){
+        PrintClerkStatusAll(clerk[i], 42+(i*12), i + 1);
+    }
+    for(int i = 0; i < 5*numClerks; i++){
+        gotoxy(42 + numClerks * 12, i);
+        cout << "|";
+    }
+}
+
 int main()
 {
     // Inicializações, configurações e variáveis auxiliares
-    srand(time(NULL));
+    srand(time(nullptr));
     int numClerks = 0, numStartingCustomers = 0, execTime = 0, timeUnitsPerCustomer = 0;
-    int timeElapsed = 0;
+    int timeElapsed = 0, numEvents = 0;
 
-    setlocale(LC_ALL,"Portuguese");
+    //setlocale(LC_ALL,"");
 
     // Leitura dos dados da simulação
     cout << "Digite o número de caixas ativos: ";
@@ -47,42 +65,45 @@ int main()
     // A partir daqui, a simulação será iniciada
     //PrintClerkStatusAll(clerk, numClerks);
     Customer tmp;
+    PrintSimulationStatus(clerk, numClerks);
+    cin.ignore();
     while(timeElapsed < execTime)
-    {
+    {   
+        numEvents = 0;
+
+        //Espera enter para continuar a simulação
         cin.ignore();
         timeElapsed++;
         clearScreen();
-        for(int i = 0; i < numClerks; i++){
-            PrintClerkStatus(clerk[i]);
+        //---------------------------------------
+
+        // Efetua os calculos de tempo e entrada/saida de clientes
+        for(int i = 0; i < numClerks; i++)
+        {
+            if(clerk[i].head != nullptr){
+                clerk[i].head->Data.timeElapsed++;
+                if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp)
+                {
+                    Queue_Pop(clerk[i], tmp);
+                    gotoxy(44 + numClerks * 12, numEvents);
+                    PrintEvent(1, tmp);
+                    numEvents++;
+                }
+            }
         }
 
-        if(timeElapsed >= timeUnitsPerCustomer && timeElapsed % timeUnitsPerCustomer == 0)
+        for(int i = 0; i < timeUnitsPerCustomer; i++)
         {
             /* chama função de colocar alguém no caixa com menos clientes */;
             tmp = InsertClientOnSmallerQueue(clerk, numClerks);
+            gotoxy(44 + numClerks * 12, numEvents);
             PrintEvent(0, tmp);
+            numEvents++;
         }
+        //---------------------------------------------------------
 
-        for(int i = 0; i < 5*numClerks; i++){
-            gotoxy(40, i);
-            cout << "|";
-        }
-        for(int i = 0; i < numClerks; i++){
-            PrintClerkStatusAll(clerk[i], 41+(i*12), i + 1);
-        }
-        for(int i = 0; i < 5*numClerks; i++){
-            gotoxy(42 + numClerks * 12, i);
-            cout << "|";
-        }
-
-        for(int i = 0; i < numClerks; i++)
-        {
-            clerk[i].head->Data.timeElapsed++;
-            if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp)
-            {
-                Queue_Pop(clerk[i], tmp);
-                PrintEvent(1, tmp);
-            }
-        }
+        // Imprime o status atual da simulação
+        PrintSimulationStatus(clerk, numClerks);
+        //--------------------------------------
     }
 }

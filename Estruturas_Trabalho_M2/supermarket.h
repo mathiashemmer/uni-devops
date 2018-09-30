@@ -72,6 +72,7 @@ void PrintClerkStatus(Queue<Customer> queue)
 // Imprime a situação atual de todos os caixas
 void PrintClerkStatusAll(Queue<Customer> queue, int xOffSet, int currentClerk)
 {
+    if(queue.size <= 0 ) return;
     int i = 0;
     Node<Customer> *node = queue.head;
     if(node->next != nullptr){
@@ -102,7 +103,7 @@ Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks)
 {
     int smallestQueue = 9999, smlQueueSize = 9999;
     Customer newCustomer = CreateCustomer();
-    for(int i = 1; i < numClerks; i++)
+    for(int i = 0; i < numClerks; i++)
     {
         if(queue[i].size < smlQueueSize){
             smallestQueue = i;
