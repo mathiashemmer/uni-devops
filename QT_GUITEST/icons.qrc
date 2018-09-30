@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>icons/cadastro_carro.png</file>
-        <file>icons/cadastro_contrato.png</file>
-    </qresource>
-</RCC>
