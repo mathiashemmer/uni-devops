@@ -99,7 +99,7 @@ void PrintEvent(int n, Customer eventSender)
 }
 
 // Insere um cliente na fila mais vazia
-Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks)
+Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks, int custPerClerk[])
 {
     int smallestQueue = 9999, smlQueueSize = 9999;
     Customer newCustomer = CreateCustomer();
@@ -111,6 +111,7 @@ Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks)
         }
     }
     Queue_Insert(queue[smallestQueue], newCustomer);
+    custPerClerk[smallestQueue]++;
     return newCustomer;
 }
 

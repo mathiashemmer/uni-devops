@@ -52,6 +52,8 @@ int main()
     SetConsoleSize(200, 30);
 
     Queue<Customer> clerk[numClerks]; // Vetor de filas (caixas)
+    int customerPerClerk[numClerks];
+    for(int i = 0; i < numClerks; i++) customerPerClerk[i] = 0;
 
     for(int i = 0; i < numClerks; i++) // Inicializando e inserindo os elementos iniciais em cada caixa
     {
@@ -86,7 +88,8 @@ int main()
                 {
                     Queue_Pop(clerk[i], tmp);
                     gotoxy(44 + numClerks * 12, numEvents);
-                    PrintEvent(1, tmp);
+                    PrintEvent(1,
+                               tmp);
                     numEvents++;
                 }
             }
@@ -95,7 +98,7 @@ int main()
         for(int i = 0; i < timeUnitsPerCustomer; i++)
         {
             /* chama função de colocar alguém no caixa com menos clientes */;
-            tmp = InsertClientOnSmallerQueue(clerk, numClerks);
+            tmp = InsertClientOnSmallerQueue(clerk, numClerks, customerPerClerk);
             gotoxy(44 + numClerks * 12, numEvents);
             PrintEvent(0, tmp);
             numEvents++;
@@ -105,5 +108,13 @@ int main()
         // Imprime o status atual da simulação
         PrintSimulationStatus(clerk, numClerks);
         //--------------------------------------
+
+        gotoxy(0, 35);
+        cout << timeElapsed;
+    }
+    clearScreen();
+    cout << "Media de clientes por caixa:" << endl;
+    for(int i = 0; i < numClerks; i++){
+        cout << "Caixa " << i << ": " << customerPerClerk[i] << endl;
     }
 }
