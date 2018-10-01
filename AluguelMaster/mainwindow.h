@@ -16,7 +16,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_btnCadastroCarro_clicked();
+    void on_pbtn_Login_clicked();
 
 private:
     Ui::MainWindow *ui;
