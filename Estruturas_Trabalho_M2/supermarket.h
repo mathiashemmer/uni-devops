@@ -74,7 +74,7 @@ void PrintClerkStatus(Queue<Customer> queue)
 void PrintClerkStatusAll(Queue<Customer> queue, int xOffSet, int currentClerk)
 {
     if(queue.size <= 0 ) return;
-    int i = 0;
+    int i = 1;
     Node<Customer> *node = queue.head;
     if(node->next != nullptr){
         node = node->next;

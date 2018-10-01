@@ -13,14 +13,14 @@ void PrintSimulationStatus(Queue<Customer> clerk[], int numClerks){
         PrintClerkStatus(clerk[i]);
     }
     for(int i = 0; i < 5*numClerks; i++){
-        gotoxy(40, i);
+        gotoxy(40, i+1);
         cout << "|";
     }
     for(int i = 0; i < numClerks; i++){
         PrintClerkStatusAll(clerk[i], 42+(i*12), i + 1);
     }
     for(int i = 0; i < 5*numClerks; i++){
-        gotoxy(42 + numClerks * 12, i);
+        gotoxy(42 + numClerks * 12, i+1);
         cout << "|";
     }
 }
