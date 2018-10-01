@@ -8,7 +8,7 @@
 using namespace std;
 
 void PrintSimulationStatus(Queue<Customer> clerk[], int numClerks){
-    gotoxy(0,0);
+    gotoxy(1,1);
     for(int i = 0; i < numClerks; i++){
         PrintClerkStatus(clerk[i]);
     }
@@ -29,7 +29,7 @@ int main()
 {
     // Inicializações, configurações e variáveis auxiliares
     srand(time(nullptr));
-    int numClerks = 0, numStartingCustomers = 0, execTime = 0, timeUnitsPerCustomer = 0;
+    int numClerks = 0, numStartingCustomers = 0, execTime = 0, customersperTimeUnit = 0;
     int timeElapsed = 0, numEvents = 0;
 
     //setlocale(LC_ALL,"");
@@ -45,7 +45,7 @@ int main()
     cin >> execTime;
     clearScreen();
     cout << "Digite quantas pessoas entram por unidade de tempo: ";
-    cin >> timeUnitsPerCustomer;
+    cin >> customersperTimeUnit;
     clearScreen();
     // Fim da leitura
 
@@ -71,7 +71,7 @@ int main()
     cin.ignore();
     while(timeElapsed < execTime)
     {   
-        numEvents = 0;
+        numEvents = 1;
 
         //Espera enter para continuar a simulação
         cin.ignore();
@@ -88,17 +88,18 @@ int main()
                 {
                     Queue_Pop(clerk[i], tmp);
                     gotoxy(44 + numClerks * 12, numEvents);
-                    PrintEvent(1,
-                               tmp);
+                    PrintEvent(1, tmp);
+                    // Sempre que a Pop é chamada, um cliente é atendido.
+                    customerPerClerk[i]++;
                     numEvents++;
                 }
             }
         }
 
-        for(int i = 0; i < timeUnitsPerCustomer; i++)
+        for(int i = 0; i < customersperTimeUnit; i++)
         {
             /* chama função de colocar alguém no caixa com menos clientes */;
-            tmp = InsertClientOnSmallerQueue(clerk, numClerks, customerPerClerk);
+            tmp = InsertClientOnSmallerQueue(clerk, numClerks/*, customerPerClerk*/);
             gotoxy(44 + numClerks * 12, numEvents);
             PrintEvent(0, tmp);
             numEvents++;
@@ -109,7 +110,7 @@ int main()
         PrintSimulationStatus(clerk, numClerks);
         //--------------------------------------
 
-        gotoxy(0, 35);
+        gotoxy(1, 35);
         cout << timeElapsed;
     }
     clearScreen();

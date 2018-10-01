@@ -17,6 +17,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp
 
 HEADERS += \
-    test.h \
+    supermarket.h \
     ../lib/educore.h \
     ../lib/queue.h

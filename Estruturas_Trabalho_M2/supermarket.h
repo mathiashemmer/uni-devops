@@ -21,12 +21,13 @@ std::string GenerateName()
                         "la", "le", "li", "lo", "lu", "ma", "me", "mi", "mo", "mu", "na", "ne", "ni", "no", "nu",
                         "pa", "pe", "pi", "po", "pu", "ra", "re", "ri", "ro", "ru", "sa", "se", "si", "so", "su",
                         "ta", "te", "ti", "to", "tu", "va", "ve", "vi", "vo", "vu", "xa", "xe", "xi", "xo", "xu",
-                        "za", "ze", "zi", "zo", "zu"};
+                        "za", "ze", "zi", "zo", "zu", "aa", "ae", "ai", "ao", "au", "ea", "ee", "ei", "eo", "eu",
+                        "ia", "ie", "ii", "io", "iu", "oa", "oe", "oi", "oo", "ou", "ua", "ue", "ui", "uo", "uu"};
     int numOfSyllables = (rand() % 4) + 2;
     std::string name = "";
     for(int i = 0; i < numOfSyllables; i++)
     {
-        name = name + syllables[rand() % 79];
+        name = name + syllables[rand() % 104];
     }
 
     name[0] = toupper(name[0]);
@@ -99,7 +100,7 @@ void PrintEvent(int n, Customer eventSender)
 }
 
 // Insere um cliente na fila mais vazia
-Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks, int custPerClerk[])
+Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks/*, int custPerClerk[]*/)
 {
     int smallestQueue = 9999, smlQueueSize = 9999;
     Customer newCustomer = CreateCustomer();
@@ -111,7 +112,7 @@ Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks, int 
         }
     }
     Queue_Insert(queue[smallestQueue], newCustomer);
-    custPerClerk[smallestQueue]++;
+    //custPerClerk[smallestQueue]++;
     return newCustomer;
 }
 
