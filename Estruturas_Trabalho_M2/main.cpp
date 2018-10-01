@@ -31,7 +31,7 @@ int main()
     clearScreen();
     // Fim da leitura
 
-    SetConsoleSize(200, 30);
+    //SetConsoleSize(200, 30);
 
     Queue<Customer> clerk[numClerks]; // Vetor de filas (caixas)
 
