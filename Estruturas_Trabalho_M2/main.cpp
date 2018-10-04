@@ -50,6 +50,7 @@ int main()
     // Fim da leitura
 
     //SetConsoleSize(200, 30);
+    setTitle("Mercado Tupi");
 
     Queue<Customer> clerk[numClerks]; // Vetor de filas (caixas)
     int customerPerClerk[numClerks];

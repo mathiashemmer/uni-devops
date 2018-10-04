@@ -58,6 +58,11 @@
         std::cout << "\033[2J\033[1;1H";
     }
 
+    void setTitle(std::string s)
+    {
+        std::cout << "\033]0;" << s << "\007";
+    }
+
 #endif
 
 #endif // EDUCORE_H
