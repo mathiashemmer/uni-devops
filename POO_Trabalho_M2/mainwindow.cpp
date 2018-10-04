@@ -20,7 +20,7 @@ MainWindow::~MainWindow()
 bool MainWindow::ValidatePassword(std::string user, std::string password){
     std::string cadLog, cadPass, buffer;
     std::ifstream myFile;
-    myFile.open("../POO_Trabalho_M2/pass.prt", std::ios::app | std::ios::in | std::ios::out);
+    myFile.open("pass.prt", std::ios::app | std::ios::in | std::ios::out);
     if(myFile.is_open()){
         while(getline(myFile, buffer)){
            cadLog = buffer.substr(0, buffer.find(':'));
