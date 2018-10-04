@@ -6,11 +6,14 @@
 class Carro
 {
 private:
+    int myID;
     std::string cor;
     std::string placa;
 public:
+    static int id;
     Carro();
     ~Carro();
+    int getID() const;
     std::string getCor() const;
     void setCor(const std::string &value);
     std::string getPlaca() const;

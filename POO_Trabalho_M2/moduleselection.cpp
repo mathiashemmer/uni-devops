@@ -1,6 +1,5 @@
 #include "moduleselection.h"
 #include "ui_moduleselection.h"
-#include "carro.h"
 
 ModuleSelection::ModuleSelection(QWidget *parent) :
     QDialog(parent),
@@ -25,11 +24,12 @@ ModuleSelection::~ModuleSelection()
 void ModuleSelection::on_btn_carros_clicked()
 {
     ui->tab_cadastros->setCurrentIndex(0);
+    ui->tbl_carros->setRowCount(0);
     Carro carro;
     for(int i = 0; i < dbCarros.size(); i++){
         carro = dbCarros.at(i);
         ui->tbl_carros->insertRow(ui->tbl_carros->rowCount());
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::fromStdString(carro.getPlaca())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::number(carro.getID())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(QString::fromStdString(carro.getCor())));
     }
 }
