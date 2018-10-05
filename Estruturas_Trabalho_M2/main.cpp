@@ -32,28 +32,24 @@ int main()
     int numClerks = 0, numStartingCustomers = 0, execTime = 0, customersperTimeUnit = 0;
     int timeElapsed = 0, numEvents = 0;
 
-    //setlocale(LC_ALL,"");
+    SetConsoleSize(200, 30);
+
+    setTitle("Mercado Tupi");
 
     // Leitura dos dados da simulação
-    cout << "Digite o número de caixas ativos: ";
+    cout << "Digite o numero de caixas ativos: ";
     cin >> numClerks;
     clearScreen();
-    cout << "Digite o número de pessoas em cada fila: ";
+    cout << "Digite o numero de pessoas em cada fila: ";
     cin >> numStartingCustomers;
     clearScreen();
-    cout << "Digite o tempo total da simulação: ";
+    cout << "Digite o tempo total da simulacao: ";
     cin >> execTime;
     clearScreen();
     cout << "Digite quantas pessoas entram por unidade de tempo: ";
     cin >> customersperTimeUnit;
     clearScreen();
     // Fim da leitura
-
-
-    SetConsoleSize(200, 30);
-
-    setTitle("Mercado Tupi");
-
 
     Queue<Customer> clerk[numClerks]; // Vetor de filas (caixas)
     int customerPerClerk[numClerks];

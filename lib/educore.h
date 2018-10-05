@@ -7,6 +7,7 @@
     #include <windows.h>
     #include <stdio.h>
     #include <tchar.h>
+    #include <ostream>
     #define DIV 1048576
     #define WIDTH 7
 
@@ -36,6 +37,11 @@
 
         SetConsoleScreenBufferSize(GetStdHandle(STD_OUTPUT_HANDLE), coord);
         SetConsoleWindowInfo(GetStdHandle(STD_OUTPUT_HANDLE), true, &rect);
+    }
+
+    void setTitle(std::string s)
+    {
+        SetConsoleTitleA(s.c_str());
     }
 
 #endif
