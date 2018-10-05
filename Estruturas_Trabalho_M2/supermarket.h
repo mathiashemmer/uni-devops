@@ -91,28 +91,29 @@ void PrintClerkStatusAll(Queue<Customer> queue, int xOffSet, int currentClerk)
 }
 
 // Imprime mensagem de algum evento
-void PrintEvent(int n, Customer eventSender)
+void PrintEvent(int n, Customer eventSender, int eventClerk)
 {   
     if(n == 1)
         std::cout << "Cliente " << eventSender.name << " atendido\n";
     if(n == 0)
-        std::cout << "Cliente " << eventSender.name << " entrou na fila\n";
+        std::cout << "Cliente " << eventSender.name << " entrou na fila: " << eventClerk << "\n";
 }
 
 // Insere um cliente na fila mais vazia
-Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks/*, int custPerClerk[]*/)
+Customer InsertClientOnSmallerQueue(Queue<Customer> queue[], int numClerks, int custPerClerk[], int &clerk)
 {
     int smallestQueue = 9999, smlQueueSize = 9999;
     Customer newCustomer = CreateCustomer();
-    for(int i = 0; i < numClerks; i++)
-    {
+    // Acha a menor fila atual
+    for(int i = 0; i < numClerks; i++){
         if(queue[i].size < smlQueueSize){
             smallestQueue = i;
             smlQueueSize = queue[i].size;
         }
     }
     Queue_Insert(queue[smallestQueue], newCustomer);
-    //custPerClerk[smallestQueue]++;
+    custPerClerk[smallestQueue]++;
+    clerk = smallestQueue;
     return newCustomer;
 }
 

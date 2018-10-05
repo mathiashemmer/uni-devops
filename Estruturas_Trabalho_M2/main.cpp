@@ -66,50 +66,43 @@ int main()
 
     // A partir daqui, a simulação será iniciada
     //PrintClerkStatusAll(clerk, numClerks);
-    Customer tmp;
     PrintSimulationStatus(clerk, numClerks);
     cin.ignore();
-    while(timeElapsed < execTime)
-    {   
+    Customer newCustumer;
+    while(timeElapsed < execTime){   
         numEvents = 1;
-
-        //Espera enter para continuar a simulação
         cin.ignore();
         timeElapsed++;
         clearScreen();
-        //---------------------------------------
-
+        //-----------------------------------------------------------------------------
         // Efetua os calculos de tempo e entrada/saida de clientes
-        for(int i = 0; i < numClerks; i++)
-        {
+        for(int i = 0; i < numClerks; i++){
             if(clerk[i].head != nullptr){
                 clerk[i].head->Data.timeElapsed++;
-                if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp)
-                {
-                    Queue_Pop(clerk[i], tmp);
+                if(clerk[i].head->Data.timeElapsed == clerk[i].head->Data.timeStamp){
+                    Queue_Pop(clerk[i], newCustumer);
                     gotoxy(44 + numClerks * 12, numEvents);
-                    PrintEvent(1, tmp);
-                    // Sempre que a Pop é chamada, um cliente é atendido.
-                    customerPerClerk[i]++;
+                    PrintEvent(1, newCustumer, -1);
                     numEvents++;
                 }
             }
-        }
+        }//-----------------------------------------------------------------------------
 
-        for(int i = 0; i < customersperTimeUnit; i++)
-        {
-            /* chama função de colocar alguém no caixa com menos clientes */;
-            tmp = InsertClientOnSmallerQueue(clerk, numClerks/*, customerPerClerk*/);
+        //------------------------------------------------------------------------
+        // Insere o número de clientes que o usuário escolheu
+        for(int i = 0; i < customersperTimeUnit; i++){
+            // Chama função de colocar alguém no caixa com menos clientes
+            int eventClerk = -1;
+            newCustumer = InsertClientOnSmallerQueue(clerk, numClerks, customerPerClerk, eventClerk);
             gotoxy(44 + numClerks * 12, numEvents);
-            PrintEvent(0, tmp);
+            PrintEvent(0, newCustumer, eventClerk);
             numEvents++;
-        }
-        //---------------------------------------------------------
+        }//-----------------------------------------------------------------------
 
+        //--------------------------------------
         // Imprime o status atual da simulação
         PrintSimulationStatus(clerk, numClerks);
         //--------------------------------------
-
         gotoxy(1, 35);
         cout << timeElapsed;
     }
