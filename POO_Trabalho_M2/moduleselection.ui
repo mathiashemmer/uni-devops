@@ -208,6 +208,17 @@
        </font>
       </property>
      </column>
+     <column>
+      <property name="text">
+       <string>Disp</string>
+      </property>
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+     </column>
     </widget>
    </widget>
    <widget class="QWidget" name="tab_carros_cadastro">
@@ -226,7 +237,7 @@
      <property name="title">
       <string>Cadastro</string>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -307,7 +318,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;O Cadastro de Veículos não faz validação de placas ou números, porém para a inclusão é preciso que todos os campos possuam ao menos 2 caracteres.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>280</x>

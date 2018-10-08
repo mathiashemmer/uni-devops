@@ -67,6 +67,7 @@ void ModuleSelection::PreencheListaCarros()
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(QString::fromStdString(carro->getPlaca())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(QString::fromStdString(carro->getCor())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(carro->getKmAtual())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 4, new QTableWidgetItem(carro->getDisponivel() == true? "Livre":"Ocupado"));
     }
 }
 
@@ -97,6 +98,10 @@ void ModuleSelection::on_tab_carros_currentChanged(int index)
 {
     if(index == 0){
         PreencheListaCarros();
+        ui->txt_carros_cor->setText("");
+        ui->txt_carros_kmatual->setText("");
+        ui->txt_carros_placa->setText("");
+
     }
 }
 
@@ -131,8 +136,10 @@ void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
             }
         }
         ui->tab_carros->setCurrentIndex(0);
+    }else{
+        QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para atualizar!");
     }
-    QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para atualizar!");
+
 }
 
 //Exclui registro selecionado
@@ -145,6 +152,7 @@ void ModuleSelection::on_btn_carros_cadastro_exclui_clicked()
         dbCarros.removeAt(idcarro);
         delete carroParaExcuir;
         ui->tab_carros->setCurrentIndex(0);
+    }else{
+        QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para excluir!");
     }
-    QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para excluir!");
 }

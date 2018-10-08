@@ -8,6 +8,7 @@ class Carro
 private:
     int myID;
     int kmAtual;
+    bool disponivel;
     std::string cor;
     std::string placa;
 public:
@@ -21,6 +22,8 @@ public:
     void setPlaca(const std::string &value);
     int getKmAtual() const;
     void setKmAtual(int value);
+    bool getDisponivel() const;
+    void setDisponivel(bool value);
 };
 
 #endif // CARRO_H

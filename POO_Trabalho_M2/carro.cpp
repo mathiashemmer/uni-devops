@@ -37,11 +37,22 @@ void Carro::setKmAtual(int value)
     kmAtual = value;
 }
 
+bool Carro::getDisponivel() const
+{
+    return disponivel;
+}
+
+void Carro::setDisponivel(bool value)
+{
+    disponivel = value;
+}
+
 Carro::Carro()
 {
     this->myID = Carro::id;
     Carro::id++;
     this->setKmAtual(0);
+    this->setDisponivel(true);
 }
 
 Carro::~Carro()
