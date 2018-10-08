@@ -27,10 +27,21 @@ int Carro::getID() const
     return this->myID;
 }
 
+int Carro::getKmAtual() const
+{
+    return kmAtual;
+}
+
+void Carro::setKmAtual(int value)
+{
+    kmAtual = value;
+}
+
 Carro::Carro()
 {
     this->myID = Carro::id;
     Carro::id++;
+    this->setKmAtual(0);
 }
 
 Carro::~Carro()

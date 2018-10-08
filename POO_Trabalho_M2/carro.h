@@ -7,6 +7,7 @@ class Carro
 {
 private:
     int myID;
+    int kmAtual;
     std::string cor;
     std::string placa;
 public:
@@ -18,6 +19,8 @@ public:
     void setCor(const std::string &value);
     std::string getPlaca() const;
     void setPlaca(const std::string &value);
+    int getKmAtual() const;
+    void setKmAtual(int value);
 };
 
 #endif // CARRO_H
