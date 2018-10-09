@@ -59,15 +59,15 @@ void ModuleSelection::on_btn_carros_clicked()
 void ModuleSelection::PreencheListaCarros()
 {
     ui->tbl_carros->setRowCount(0);
-    Carro *carro;
-    for(int i = 0; i < dbCarros.size(); i++){
-        carro = dbCarros.at(i);
+    QLinkedList<Carro*>::iterator iter = dbCarros.begin();
+    while(iter != dbCarros.end()){
         ui->tbl_carros->insertRow(ui->tbl_carros->rowCount());
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::number(carro->getID())));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(carro->getPlaca()));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(carro->getCor()));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(carro->getKmAtual())));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 4, new QTableWidgetItem(carro->getDisponivel() == true? "Livre":"Ocupado"));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::number(iter.i->t->getID())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(iter.i->t->getPlaca()));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(iter.i->t->getCor()));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(iter.i->t->getKmAtual())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 4, new QTableWidgetItem(iter.i->t->getDisponivel() == true? "Livre":"Ocupado"));
+        ++iter;
     }
 }
 
@@ -80,12 +80,12 @@ void ModuleSelection::on_tbl_carros_cellDoubleClicked(int row, int column)
 
     Carro *carroAtual = nullptr;
 
-    for(int i = 0; i < dbCarros.size(); i++){
-        if(dbCarros.at(i)->getID() == idcarro){
-            carroAtual = dbCarros.at(i);
-        }
+    ui->tbl_carros->setRowCount(0);
+    QLinkedList<Carro*>::iterator iter = dbCarros.begin();
+    while(iter != dbCarros.end() && iter.i->t->getID() != idcarro){
+        ++iter;
     }
-
+    carroAtual = iter.i->t;
     if(carroAtual != nullptr){
         ui->txt_carros_cor->setText(carroAtual->getCor());
         ui->txt_carros_kmatual->setText(QString::number(carroAtual->getKmAtual()));
@@ -135,6 +135,7 @@ void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
             atual->setPlaca( ui->txt_carros_placa->text());
             atual->setCor( ui->txt_carros_cor->text());
             atual->setKmAtual(ui->txt_carros_kmatual->text().toInt());
+            foundCar = true;
         }
         ++iter;
     }while(iter != dbCarros.end() && !foundCar);
@@ -149,13 +150,19 @@ void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
 void ModuleSelection::on_btn_carros_cadastro_exclui_clicked()
 {
     int idcarro = ui->lbl_carros_id->text().toInt();
-    if(idcarro >= 0){
-        Carro *carroParaExcluir = nullptr;
-        carroParaExcluir = dbCarros.at(idcarro);
-        dbCarros.removeAt(idcarro);
-        delete carroParaExcluir;
-        ui->tab_carros->setCurrentIndex(0);
-    }else{
+    bool foundCar = false;
+    QLinkedList<Carro*>::iterator iter = dbCarros.begin();
+    do{
+        Carro *atual = iter.i->t;
+        if(atual->getID() == idcarro){
+            dbCarros.removeOne(atual);
+            foundCar = true;
+        }
+        ++iter;
+    }while(iter != dbCarros.end() && !foundCar);
+    if(!foundCar){
         QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para excluir!");
+    }else{
+        ui->tab_carros->setCurrentIndex(0);
     }
 }
