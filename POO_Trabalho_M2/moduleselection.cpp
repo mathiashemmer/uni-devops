@@ -109,7 +109,7 @@ void ModuleSelection::on_tab_carros_currentChanged(int index)
 void ModuleSelection::on_btn_carros_cadastro_novo_clicked()
 {
     if(ui->txt_carros_cor->text().size() < 1 || ui->txt_carros_kmatual->text().size() < 1 || ui->txt_carros_placa->text().size() < 1){
-        QMessageBox::warning(this, "Erro no Cadastro!", "Alguns dos campos esta muito pequeno ou em branco!");
+        QMessageBox::warning(this, "Erro no Cadastro!", "Alguns dos campos estão muito pequenos ou em branco!");
         return;
     }else{
         Carro* novoCarro = new Carro();
