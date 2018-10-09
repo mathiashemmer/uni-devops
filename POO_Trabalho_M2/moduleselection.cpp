@@ -126,20 +126,23 @@ void ModuleSelection::on_btn_carros_cadastro_novo_clicked()
 void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
 {
     int idCarro = ui->lbl_carros_id->text().toInt();
+    bool foundCar = false;
 
-    if(idCarro > -1){
-        for(int i = 0; i < dbCarros.size(); i++){
-            if(dbCarros.at(i)->getID() == idCarro){
-                dbCarros[i]->setCor( ui->txt_carros_cor->text());
-                dbCarros[i]->setPlaca( ui->txt_carros_placa->text());
-                dbCarros[i]->setKmAtual(ui->txt_carros_kmatual->text().toInt());
-            }
+    QLinkedList<Carro*>::iterator iter = dbCarros.begin();
+    do{
+        Carro *atual = iter.i->t;
+        if(atual->getID() == idCarro){
+            atual->setPlaca( ui->txt_carros_placa->text());
+            atual->setCor( ui->txt_carros_cor->text());
+            atual->setKmAtual(ui->txt_carros_kmatual->text().toInt());
         }
+        ++iter;
+    }while(iter != dbCarros.end() && !foundCar);
+    if(foundCar){
         ui->tab_carros->setCurrentIndex(0);
     }else{
         QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para atualizar!");
     }
-
 }
 
 //Exclui registro selecionado
@@ -147,10 +150,10 @@ void ModuleSelection::on_btn_carros_cadastro_exclui_clicked()
 {
     int idcarro = ui->lbl_carros_id->text().toInt();
     if(idcarro >= 0){
-        Carro *carroParaExcuir = nullptr;
-        carroParaExcuir = dbCarros.at(idcarro);
+        Carro *carroParaExcluir = nullptr;
+        carroParaExcluir = dbCarros.at(idcarro);
         dbCarros.removeAt(idcarro);
-        delete carroParaExcuir;
+        delete carroParaExcluir;
         ui->tab_carros->setCurrentIndex(0);
     }else{
         QMessageBox::warning(this, "Aviso!", "Nenhum veículo encontrado para excluir!");

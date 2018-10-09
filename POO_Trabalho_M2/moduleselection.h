@@ -2,7 +2,7 @@
 #define MODULESELECTION_H
 
 #include <QDialog>
-#include <QList>
+#include <QLinkedList>
 #include "carro.h"
 
 namespace Ui {
@@ -14,7 +14,7 @@ class ModuleSelection : public QDialog
     Q_OBJECT
 
 public:
-    QList<Carro*> dbCarros;
+    QLinkedList<Carro*> dbCarros;
 
     explicit ModuleSelection(QWidget *parent = nullptr);
     ~ModuleSelection();
