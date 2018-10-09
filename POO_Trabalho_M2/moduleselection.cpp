@@ -19,11 +19,13 @@ ModuleSelection::~ModuleSelection()
 void ModuleSelection::EscondeTodasTabs()
 {
     ui->tab_carros->hide();
+    ui->tab_clientes->hide();
 }
 
 void ModuleSelection::on_btn_clientes_clicked()
 {
     EscondeTodasTabs();
+    ui->tab_clientes->show();
 }
 
 void ModuleSelection::on_btn_contratos_clicked()
