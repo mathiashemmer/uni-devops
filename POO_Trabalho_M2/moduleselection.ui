@@ -80,7 +80,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="usesScrollButtons">
     <bool>false</bool>
@@ -243,7 +243,7 @@
         <x>20</x>
         <y>30</y>
         <width>211</width>
-        <height>107</height>
+        <height>114</height>
        </rect>
       </property>
       <layout class="QFormLayout" name="formLayout">
@@ -314,8 +314,8 @@
       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;O Cadastro de Veículos não faz validação de placas ou números, porém para a inclusão é preciso que todos os campos possuam ao menos 2 caracteres.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;O Cadastro de Veículos não faz validação de placas ou números, porém para a inclusão é preciso que todos os campos possuam ao menos 2 caracteres.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget">
@@ -331,21 +331,21 @@ p, li { white-space: pre-wrap; }
       <item>
        <widget class="QPushButton" name="btn_carros_cadastro_atualiza">
         <property name="text">
-         <string>Atualziar</string>
+         <string>Atualizar</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btn_carros_cadastro_novo">
         <property name="text">
-         <string>Novo</string>
+         <string>Inserir</string>
         </property>
        </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btn_carros_cadastro_exclui">
         <property name="text">
-         <string>Exclui</string>
+         <string>Excluir</string>
         </property>
        </widget>
       </item>

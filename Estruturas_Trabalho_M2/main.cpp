@@ -4,6 +4,7 @@
 #include <supermarket.h>
 #include <time.h>
 #include <locale.h>
+#include <auxlib.h>
 
 using namespace std;
 
@@ -32,24 +33,21 @@ int main()
     int numClerks = 0, numStartingCustomers = 0, execTime = 0, customersperTimeUnit = 0;
     int timeElapsed = 0, numEvents = 0;
 
-    SetConsoleSize(200, 30);
+    //SetConsoleSize(200, 30);
 
     setTitle("Mercado Tupi");
 
     // Leitura dos dados da simulação
-    cout << "Digite o numero de caixas ativos: ";
-    cin >> numClerks;
+    numClerks = get_int(1, "Digite o numero de caixas ativos: ");
     clearScreen();
-    cout << "Digite o numero de pessoas em cada fila: ";
-    cin >> numStartingCustomers;
+    numStartingCustomers = get_int(0, "Digite o numero de pessoas em cada fila: ");
     clearScreen();
-    cout << "Digite o tempo total da simulacao: ";
-    cin >> execTime;
+    execTime = get_int(1, "Digite o tempo de execucao da simulacao: ");
     clearScreen();
-    cout << "Digite quantas pessoas entram por unidade de tempo: ";
-    cin >> customersperTimeUnit;
+    customersperTimeUnit = get_int(0, "Digite quantas pessoas entram por unidade de tempo: ");
     clearScreen();
     // Fim da leitura
+    std::cin.clear();
 
     Queue<Customer> clerk[numClerks]; // Vetor de filas (caixas)
     int customerPerClerk[numClerks];
@@ -61,6 +59,7 @@ int main()
         for(int j = 0; j < numStartingCustomers; j++)
         {
             Queue_Insert(clerk[i], CreateCustomer());
+            customerPerClerk[i]++;
         }
     }
 
