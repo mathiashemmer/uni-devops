@@ -64,8 +64,8 @@ void ModuleSelection::PreencheListaCarros()
         carro = dbCarros.at(i);
         ui->tbl_carros->insertRow(ui->tbl_carros->rowCount());
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::number(carro->getID())));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(QString::fromStdString(carro->getPlaca())));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(QString::fromStdString(carro->getCor())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(carro->getPlaca()));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(carro->getCor()));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(carro->getKmAtual())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 4, new QTableWidgetItem(carro->getDisponivel() == true? "Livre":"Ocupado"));
     }
@@ -87,9 +87,9 @@ void ModuleSelection::on_tbl_carros_cellDoubleClicked(int row, int column)
     }
 
     if(carroAtual != nullptr){
-        ui->txt_carros_cor->setText(QString::fromStdString(carroAtual->getCor()));
+        ui->txt_carros_cor->setText(carroAtual->getCor());
         ui->txt_carros_kmatual->setText(QString::number(carroAtual->getKmAtual()));
-        ui->txt_carros_placa->setText(QString::fromStdString(carroAtual->getPlaca()));
+        ui->txt_carros_placa->setText(carroAtual->getPlaca());
     }
 }
 
@@ -113,8 +113,8 @@ void ModuleSelection::on_btn_carros_cadastro_novo_clicked()
         return;
     }else{
         Carro* novoCarro = new Carro();
-        novoCarro-> setCor(ui->txt_carros_cor->text().toStdString());
-        novoCarro->setPlaca(ui->txt_carros_placa->text().toStdString());
+        novoCarro->setCor(ui->txt_carros_cor->text());
+        novoCarro->setPlaca(ui->txt_carros_placa->text());
         novoCarro->setKmAtual(ui->txt_carros_kmatual->text().toInt());
 
         dbCarros.append(novoCarro);
@@ -130,8 +130,8 @@ void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
     if(idCarro > -1){
         for(int i = 0; i < dbCarros.size(); i++){
             if(dbCarros.at(i)->getID() == idCarro){
-                dbCarros[i]->setCor( ui->txt_carros_cor->text().toStdString());
-                dbCarros[i]->setPlaca( ui->txt_carros_placa->text().toStdString());
+                dbCarros[i]->setCor( ui->txt_carros_cor->text());
+                dbCarros[i]->setPlaca( ui->txt_carros_placa->text());
                 dbCarros[i]->setKmAtual(ui->txt_carros_kmatual->text().toInt());
             }
         }

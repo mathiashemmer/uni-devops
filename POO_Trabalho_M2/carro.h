@@ -1,7 +1,7 @@
 #ifndef CARRO_H
 #define CARRO_H
 
-#include <string>
+#include <QString>
 
 class Carro
 {
@@ -9,17 +9,17 @@ private:
     int myID;
     int kmAtual;
     bool disponivel;
-    std::string cor;
-    std::string placa;
+    QString cor;
+    QString placa;
 public:
     static int id;
     Carro();
     ~Carro();
     int getID() const;
-    std::string getCor() const;
-    void setCor(const std::string &value);
-    std::string getPlaca() const;
-    void setPlaca(const std::string &value);
+    QString getCor() const;
+    void setCor(const QString &value);
+    QString getPlaca() const;
+    void setPlaca(const QString &value);
     int getKmAtual() const;
     void setKmAtual(int value);
     bool getDisponivel() const;

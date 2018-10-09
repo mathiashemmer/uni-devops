@@ -2,22 +2,22 @@
 
 int Carro::id = 0;
 
-std::string Carro::getCor() const
+QString Carro::getCor() const
 {
     return cor;
 }
 
-void Carro::setCor(const std::string &value)
+void Carro::setCor(const QString &value)
 {
     cor = value;
 }
 
-std::string Carro::getPlaca() const
+QString Carro::getPlaca() const
 {
     return placa;
 }
 
-void Carro::setPlaca(const std::string &value)
+void Carro::setPlaca(const QString &value)
 {
     placa = value;
 }
