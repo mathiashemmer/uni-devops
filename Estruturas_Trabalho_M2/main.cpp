@@ -102,7 +102,7 @@ int main()
         // Imprime o status atual da simulação
         PrintSimulationStatus(clerk, numClerks);
         //--------------------------------------
-        gotoxy(1, 35);
+        gotoxy(1, 45);
         cout << timeElapsed;
     }
     clearScreen();
