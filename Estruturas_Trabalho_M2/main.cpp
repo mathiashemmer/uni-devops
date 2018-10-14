@@ -33,7 +33,7 @@ int main()
     int numClerks = 0, numStartingCustomers = 0, execTime = 0, customersperTimeUnit = 0;
     int timeElapsed = 0, numEvents = 0;
 
-    //SetConsoleSize(200, 30);
+    SetConsoleSize(200, 30);
 
     setTitle("Mercado Tupi");
 

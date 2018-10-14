@@ -64,7 +64,7 @@ void PrintClerkStatus(Queue<Customer> queue)
     else
     {
         std::cout << "---------------------------------------" << std::endl;
-        std::cout << "Número de clientes na fila: " << queue.size << std::endl;
+        std::cout << "Numero de clientes na fila: " << queue.size << std::endl;
         std::cout << "Cliente sendo atendido:     " << queue.head->Data.name << std::endl;
         std::cout << "Tempo restante:             " << queue.head->Data.timeStamp - queue.head->Data.timeElapsed << std::endl;
     }
