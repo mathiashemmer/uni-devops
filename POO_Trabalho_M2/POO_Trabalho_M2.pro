@@ -28,14 +28,17 @@ SOURCES += \
         mainwindow.cpp \
     moduleselection.cpp \
     carro.cpp \
-    pessoa.cpp
+    pessoa.cpp \
+    cliente.cpp
 
 HEADERS += \
         mainwindow.h \
     moduleselection.h \
     carro.h \
-    pessoa.h
+    pessoa.h \
+    cliente.h
 
 FORMS += \
         mainwindow.ui \
-    moduleselection.ui
+    moduleselection.ui \
+    moduleselection_copy.ui

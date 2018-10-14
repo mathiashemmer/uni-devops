@@ -27,14 +27,14 @@ int Carro::getID() const
     return this->myID;
 }
 
-int Carro::getKmAtual() const
+int Carro::getQuilometragem() const
 {
-    return kmAtual;
+    return quilometragem;
 }
 
-void Carro::setKmAtual(int value)
+void Carro::setQuilometragem(int value)
 {
-    kmAtual = value;
+    quilometragem = value;
 }
 
 bool Carro::getDisponivel() const
@@ -51,7 +51,7 @@ Carro::Carro()
 {
     this->myID = Carro::id;
     Carro::id++;
-    this->setKmAtual(0);
+    this->setQuilometragem(0);
     this->setDisponivel(true);
 }
 

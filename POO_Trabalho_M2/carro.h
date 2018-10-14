@@ -7,7 +7,7 @@ class Carro
 {
 private:
     int myID;
-    int kmAtual;
+    int quilometragem;
     bool disponivel;
     QString cor;
     QString placa;
@@ -20,8 +20,8 @@ public:
     void setCor(const QString &value);
     QString getPlaca() const;
     void setPlaca(const QString &value);
-    int getKmAtual() const;
-    void setKmAtual(int value);
+    int getQuilometragem() const;
+    void setQuilometragem(int value);
     bool getDisponivel() const;
     void setDisponivel(bool value);
 };

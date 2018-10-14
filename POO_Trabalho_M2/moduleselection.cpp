@@ -67,7 +67,7 @@ void ModuleSelection::PreencheListaCarros()
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 0, new QTableWidgetItem(QString::number(iter.i->t->getID())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 1, new QTableWidgetItem(iter.i->t->getPlaca()));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 2, new QTableWidgetItem(iter.i->t->getCor()));
-        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(iter.i->t->getKmAtual())));
+        ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 3, new QTableWidgetItem(QString::number(iter.i->t->getQuilometragem())));
         ui->tbl_carros->setItem(ui->tbl_carros->rowCount()-1, 4, new QTableWidgetItem(iter.i->t->getDisponivel() == true? "Livre":"Ocupado"));
         ++iter;
     }
@@ -90,7 +90,7 @@ void ModuleSelection::on_tbl_carros_cellDoubleClicked(int row, int column)
     carroAtual = iter.i->t;
     if(carroAtual != nullptr){
         ui->txt_carros_cor->setText(carroAtual->getCor());
-        ui->txt_carros_kmatual->setText(QString::number(carroAtual->getKmAtual()));
+        ui->txt_carros_quilometragem->setText(QString::number(carroAtual->getQuilometragem()));
         ui->txt_carros_placa->setText(carroAtual->getPlaca());
     }
 }
@@ -101,7 +101,7 @@ void ModuleSelection::on_tab_carros_currentChanged(int index)
     if(index == 0){
         PreencheListaCarros();
         ui->txt_carros_cor->setText("");
-        ui->txt_carros_kmatual->setText("");
+        ui->txt_carros_quilometragem->setText("");
         ui->txt_carros_placa->setText("");
 
     }
@@ -110,14 +110,14 @@ void ModuleSelection::on_tab_carros_currentChanged(int index)
 //Insere novo veiculo nos registros
 void ModuleSelection::on_btn_carros_cadastro_novo_clicked()
 {
-    if(ui->txt_carros_cor->text().size() < 1 || ui->txt_carros_kmatual->text().size() < 1 || ui->txt_carros_placa->text().size() < 1){
+    if(ui->txt_carros_cor->text().size() < 1 || ui->txt_carros_quilometragem->text().size() < 1 || ui->txt_carros_placa->text().size() < 1){
         QMessageBox::warning(this, "Erro no Cadastro!", "Alguns dos campos estão muito pequenos ou em branco!");
         return;
     }else{
         Carro* novoCarro = new Carro();
         novoCarro->setCor(ui->txt_carros_cor->text());
         novoCarro->setPlaca(ui->txt_carros_placa->text());
-        novoCarro->setKmAtual(ui->txt_carros_kmatual->text().toInt());
+        novoCarro->setQuilometragem(ui->txt_carros_quilometragem->text().toInt());
 
         dbCarros.append(novoCarro);
         ui->tab_carros->setCurrentIndex(0);
@@ -136,7 +136,7 @@ void ModuleSelection::on_btn_carros_cadastro_atualiza_clicked()
         if(atual->getID() == idCarro){
             atual->setPlaca( ui->txt_carros_placa->text());
             atual->setCor( ui->txt_carros_cor->text());
-            atual->setKmAtual(ui->txt_carros_kmatual->text().toInt());
+            atual->setQuilometragem(ui->txt_carros_quilometragem->text().toInt());
             foundCar = true;
         }
         ++iter;
