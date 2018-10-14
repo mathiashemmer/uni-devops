@@ -80,7 +80,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="usesScrollButtons">
     <bool>false</bool>
@@ -199,7 +199,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Km Atual</string>
+       <string>quilometragem</string>
       </property>
       <property name="font">
        <font>
@@ -210,7 +210,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Disp</string>
+       <string>disponibilidade</string>
       </property>
       <property name="font">
        <font>
@@ -225,7 +225,7 @@
     <attribute name="title">
      <string>Carro</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_2">
+    <widget class="QGroupBox" name="carros_groupBox_1">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -246,9 +246,9 @@
         <height>114</height>
        </rect>
       </property>
-      <layout class="QFormLayout" name="formLayout">
+      <layout class="QFormLayout" name="carros_formLayout_1">
        <item row="1" column="0">
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="lbl_carros_placa">
          <property name="text">
           <string>Placa</string>
          </property>
@@ -258,7 +258,7 @@
         <widget class="QLineEdit" name="txt_carros_placa"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="lbl_carros_cor">
          <property name="text">
           <string>Cor</string>
          </property>
@@ -268,17 +268,17 @@
         <widget class="QLineEdit" name="txt_carros_cor"/>
        </item>
        <item row="3" column="0">
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="lbl_carros_quilometragem">
          <property name="text">
-          <string>Km Aual</string>
+          <string>Quilometragem</string>
          </property>
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="txt_carros_kmatual"/>
+        <widget class="QLineEdit" name="txt_carros_quilometragem"/>
        </item>
        <item row="0" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout">
+        <layout class="QHBoxLayout" name="carros_horizontalLayout_1">
          <item>
           <widget class="QLabel" name="lbl_carros_id">
            <property name="layoutDirection">
@@ -292,7 +292,7 @@
         </layout>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="lbl_carros_txtID">
          <property name="text">
           <string>ID</string>
          </property>
@@ -301,7 +301,7 @@
       </layout>
      </widget>
     </widget>
-    <widget class="QTextBrowser" name="textBrowser">
+    <widget class="QTextBrowser" name="carros_textBrowser_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -327,7 +327,7 @@ p, li { white-space: pre-wrap; }
        <height>100</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="carros_verticalLayout_1">
       <item>
        <widget class="QPushButton" name="btn_carros_cadastro_atualiza">
         <property name="text">
@@ -356,9 +356,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QTabWidget" name="tab_clientes">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>11</y>
-     <width>601</width>
+     <x>183</x>
+     <y>10</y>
+     <width>590</width>
      <height>511</height>
     </rect>
    </property>
@@ -369,7 +369,7 @@ p, li { white-space: pre-wrap; }
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="usesScrollButtons">
     <bool>false</bool>
@@ -499,7 +499,7 @@ p, li { white-space: pre-wrap; }
      </column>
      <column>
       <property name="text">
-       <string>endereco</string>
+       <string>nascimento</string>
       </property>
       <property name="font">
        <font>
@@ -525,7 +525,7 @@ p, li { white-space: pre-wrap; }
     <attribute name="title">
      <string>Cliente</string>
     </attribute>
-    <widget class="QGroupBox" name="groupBox_3">
+    <widget class="QGroupBox" name="clientes_groupBox_1">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -546,16 +546,39 @@ p, li { white-space: pre-wrap; }
         <height>301</height>
        </rect>
       </property>
-      <layout class="QFormLayout" name="formLayout_2">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_5">
+      <layout class="QFormLayout" name="clientes_formLayout_1">
+       <item row="1" column="0">
+        <widget class="QLabel" name="lbl_clientes_nome">
          <property name="text">
-          <string>ID</string>
+          <string>Nome</string>
          </property>
         </widget>
        </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="txt_clientes_nome"/>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="lbl_clientes_cpf">
+         <property name="text">
+          <string>CPF</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="txt_clientes_cpf"/>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="lbl_clientes_rg">
+         <property name="text">
+          <string>RG</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1">
+        <widget class="QLineEdit" name="txt_clientes_rg"/>
+       </item>
        <item row="0" column="1">
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <layout class="QHBoxLayout" name="clientes_horizontalLayout_1">
          <item>
           <widget class="QLabel" name="lbl_clientes_id">
            <property name="layoutDirection">
@@ -568,60 +591,37 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </item>
-       <item row="1" column="0">
-        <widget class="QLabel" name="label_6">
+       <item row="0" column="0">
+        <widget class="QLabel" name="lbl_clientes_txtID">
          <property name="text">
-          <string>Nome</string>
+          <string>ID</string>
          </property>
         </widget>
-       </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="txt_clientes_nome"/>
-       </item>
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_7">
-         <property name="text">
-          <string>CPF</string>
-         </property>
-        </widget>
-       </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="txt_clientes_cpf"/>
-       </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_8">
-         <property name="text">
-          <string>RG</string>
-         </property>
-        </widget>
-       </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="txt_clientes_rg"/>
-       </item>
-       <item row="5" column="0">
-        <widget class="QLabel" name="label_9">
-         <property name="text">
-          <string>Endereço</string>
-         </property>
-        </widget>
-       </item>
-       <item row="5" column="1">
-        <widget class="QTextEdit" name="txt_clientes_endereco"/>
        </item>
        <item row="4" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="lbl_clientes_nascimento">
+         <property name="text">
+          <string>Nascimento</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="lbl_clientes_cnh">
          <property name="text">
           <string>CNH</string>
          </property>
         </widget>
        </item>
        <item row="4" column="1">
+        <widget class="QLineEdit" name="txt_clientes_nascimento"/>
+       </item>
+       <item row="5" column="1">
         <widget class="QLineEdit" name="txt_clientes_cnh"/>
        </item>
       </layout>
      </widget>
     </widget>
-    <widget class="QTextBrowser" name="textBrowser_2">
+    <widget class="QTextBrowser" name="clientes_textBrowser_1">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -635,19 +635,19 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;O Cadastro de Pessoas não faz validação de placas ou números, porém para a inclusão é preciso que todos os campos possuam ao menos 2 caracteres.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;O Cadastro de Veículos não faz validação de placas ou números, porém para a inclusão é preciso que todos os campos possuam ao menos 2 caracteres.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
     <widget class="QWidget" name="layoutWidget_3">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>90</y>
+       <x>280</x>
+       <y>50</y>
        <width>221</width>
        <height>100</height>
       </rect>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="clientes_verticalLayout_1">
       <item>
        <widget class="QPushButton" name="btn_clientes_cadastro_atualiza">
         <property name="text">
