@@ -38,5 +38,4 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui \
-    moduleselection.ui \
-    moduleselection_copy.ui
+    moduleselection.ui
