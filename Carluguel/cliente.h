@@ -2,15 +2,22 @@
 #define CLIENTE_H
 #include <pessoa.h>
 
+enum ConceitoCliente{Ruim, Mediano, Bom, Otimo};
 
 class Cliente : public Pessoa
 {
 private:
-    int meuID;
-
+    unsigned int meuID;
+    ConceitoCliente conceito;
 public:
-    static int ID;
+    static unsigned int ID;
+    static bool AutoInc();
+
     Cliente();
+    Cliente(Endereco endereco, QString nome, QString CPF, QDate nacimento, ConceitoCliente conceito);
+    ~Cliente();
+    ConceitoCliente getConceito() const;
+    void setConceito(const ConceitoCliente &value);
 };
 
 #endif // CLIENTE_H

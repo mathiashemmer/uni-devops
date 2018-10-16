@@ -54,3 +54,12 @@ Endereco::Endereco()
 {
 
 }
+
+Endereco::Endereco(int numero, int CEP, QString rua, QString bairro, QString cidade)
+{
+    this->numero = numero;
+    this->CEP = CEP;
+    this->rua = rua;
+    this->bairro = bairro;
+    this->cidade = cidade;
+}

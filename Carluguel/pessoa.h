@@ -9,19 +9,17 @@ class Pessoa
 protected:
     Endereco endereco;
     QString nome;
-    QString sobrenome;
     QString CPF;
     QDate dataNacimento;
 
 public:
     Pessoa();
-    Pessoa(Endereco endereco, QString nome, QString sobrenome, QString CPF, QDate nacimento);
+    Pessoa(Endereco endereco, QString nome, QString CPF, QDate nacimento);
+    virtual ~Pessoa();
     Endereco getEndereco() const;
     void setEndereco(const Endereco &value);
     QString getNome() const;
     void setNome(const QString &value);
-    QString getSobrenome() const;
-    void setSobrenome(const QString &value);
     QDate getDataNacimento() const;
     void setDataNacimento(const QDate &value);
     QString getCPF() const;

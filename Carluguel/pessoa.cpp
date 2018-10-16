@@ -20,16 +20,6 @@ void Pessoa::setNome(const QString &value)
     nome = value;
 }
 
-QString Pessoa::getSobrenome() const
-{
-    return sobrenome;
-}
-
-void Pessoa::setSobrenome(const QString &value)
-{
-    sobrenome = value;
-}
-
 QDate Pessoa::getDataNacimento() const
 {
     return dataNacimento;
@@ -55,11 +45,15 @@ Pessoa::Pessoa()
 
 }
 
-Pessoa::Pessoa(Endereco endereco, QString nome, QString sobrenome, QString CPF, QDate nacimento)
+Pessoa::Pessoa(Endereco endereco, QString nome, QString CPF, QDate nacimento)
 {
     this->endereco = endereco;
     this->nome = nome;
-    this->sobrenome = sobrenome;
     this->CPF = CPF;
     this->dataNacimento = nacimento;
+}
+
+Pessoa::~Pessoa()
+{
+
 }

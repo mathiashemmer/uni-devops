@@ -13,6 +13,7 @@ private:
     QString cidade;
 public:
     Endereco();
+    Endereco(int numero, int CEP, QString rua, QString bairro, QString cidade);
     int getNumero() const;
     void setNumero(int value);
     int getCEP() const;

@@ -95,7 +95,7 @@ bool Carro::AutoInc()
 
 Carro::Carro()
 {
-    
+    AutoInc();
 }
 
 Carro::Carro(int kmAtual, int kmRev, QString chassi, QString placa, QString modelo, QString obs, int cor, StatusCarro disp)
