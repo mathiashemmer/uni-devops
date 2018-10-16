@@ -10,7 +10,10 @@ private:
 public:
     static int ID;
     bool static AutoInc();
+    int getID() const;
     Manutencao();
+    int getIdTerceiro() const;
+    void setIdTerceiro(int value);
 };
 
 #endif // MANUTENCAO_H

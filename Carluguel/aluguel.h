@@ -11,7 +11,11 @@ private:
 public:
     static int ID;
     bool static AutoInc();
+    int getID() const;
     Aluguel();
+    int getIdCliente() const;
+    void setIdCliente(int value);
+    int getMeuID() const;
 };
 
 #endif // ALUGUEL_H
