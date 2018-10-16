@@ -69,7 +69,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -844,6 +844,100 @@ p, li { white-space: pre-wrap; }
       <attribute name="title">
        <string>Registros</string>
       </attribute>
+      <widget class="QTableWidget" name="tbl_clientes_registros">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>661</width>
+         <height>511</height>
+        </rect>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="showGrid">
+        <bool>true</bool>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::NoPen</enum>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>93</number>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>40</number>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Status</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Modelo</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Cor</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Placa</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Chassi</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Km</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_3">
+       <property name="geometry">
+        <rect>
+         <x>690</x>
+         <y>10</y>
+         <width>241</width>
+         <height>511</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Filtros</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="tab_clientes_cadastros">
       <attribute name="title">

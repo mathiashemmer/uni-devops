@@ -4,7 +4,7 @@
 #include <QString>
 
 enum Cor {Azul, Verde, Vermelho, Cinza, Preto, Branco, Prata, Laranja, Rosa, Ciano, Marinho, Vinho};
-enum StatusCarro {Alugado = 1, Disponivel, Manutencao};
+enum StatusCarro {Alugado, Disponivel, Manutencao};
 
 class Carro
 {
@@ -21,6 +21,7 @@ private:
 public:
     //Usado como ID unico para a classe
     static unsigned int ID;
+    static bool AutoInc();
 
     Carro();
     Carro(int kmAtual, int kmRev, QString chassi, QString placa, QString modelo, QString obs, int cor, StatusCarro disp);

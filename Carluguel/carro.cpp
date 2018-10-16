@@ -87,6 +87,12 @@ void Carro::setDisponibilidade(const StatusCarro &value)
     disponibilidade = value;
 }
 
+bool Carro::AutoInc()
+{
+    ID++;
+    return true;
+}
+
 Carro::Carro()
 {
     
@@ -105,5 +111,5 @@ Carro::Carro(int kmAtual, int kmRev, QString chassi, QString placa, QString mode
     setPlaca(placa);
 
     this->meuID = Carro::ID;
-    Carro::ID++;
+    AutoInc();
 }

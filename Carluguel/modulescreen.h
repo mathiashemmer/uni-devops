@@ -29,6 +29,14 @@ private slots:
     void on_cbx_carros_registros_filtro_status_currentIndexChanged(const QString &arg1);
     void on_tbl_carros_registros_cellDoubleClicked(int row, int column);
 
+    void on_btn_carros_cadastro_gravar_clicked();
+
+    void on_btn_carros_cadastro_novo_clicked(bool checked);
+
+    void on_btn_carros_cadastro_excluir_clicked();
+
+    void on_txt_carros_registros_filtro_modelo_textChanged(const QString &arg1);
+
 private:
     Ui::ModuleScreen *ui;
 };
