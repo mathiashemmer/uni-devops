@@ -520,8 +520,8 @@
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -837,10 +837,16 @@ p, li { white-space: pre-wrap; }
        <height>560</height>
       </rect>
      </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Registros</string>
       </attribute>
@@ -925,6 +931,9 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
      <widget class="QWidget" name="tab_clientes_cadastros">
+      <property name="autoFillBackground">
+       <bool>true</bool>
+      </property>
       <attribute name="title">
        <string>Cadastros</string>
       </attribute>
@@ -1073,7 +1082,7 @@ p, li { white-space: pre-wrap; }
             <enum>QFrame::NoFrame</enum>
            </property>
            <property name="text">
-            <string>Conceito:</string>
+            <string>RUIM</string>
            </property>
            <property name="indent">
             <number>-1</number>
@@ -1135,12 +1144,12 @@ p, li { white-space: pre-wrap; }
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_5">
              <item row="0" column="0">
-              <widget class="QLineEdit" name="txt_clietes_registros_nome"/>
+              <widget class="QLineEdit" name="txt_clientes_cadastro_nome"/>
              </item>
              <item row="1" column="0">
               <layout class="QGridLayout" name="gridLayout_6">
                <item row="0" column="1">
-                <widget class="QLineEdit" name="txt_clietes_registros_CPF"/>
+                <widget class="QLineEdit" name="txt_clientes_cadastro_CPF"/>
                </item>
                <item row="0" column="2">
                 <spacer name="horizontalSpacer_2">
@@ -1165,7 +1174,7 @@ p, li { white-space: pre-wrap; }
            <item row="1" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout">
              <item>
-              <widget class="QDateEdit" name="dtf_clietes_registros_nascimento"/>
+              <widget class="QDateEdit" name="dtf_clientes_cadastro_nascimento"/>
              </item>
              <item>
               <spacer name="horizontalSpacer">
@@ -1206,7 +1215,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>70</y>
+          <y>90</y>
           <width>41</width>
           <height>24</height>
          </rect>
@@ -1219,7 +1228,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>90</y>
+          <y>120</y>
           <width>41</width>
           <height>24</height>
          </rect>
@@ -1232,7 +1241,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>110</y>
+          <y>150</y>
           <width>51</width>
           <height>24</height>
          </rect>
@@ -1245,7 +1254,7 @@ p, li { white-space: pre-wrap; }
         <property name="geometry">
          <rect>
           <x>20</x>
-          <y>50</y>
+          <y>60</y>
           <width>51</width>
           <height>24</height>
          </rect>
@@ -1267,12 +1276,12 @@ p, li { white-space: pre-wrap; }
          <string>CEP:</string>
         </property>
        </widget>
-       <widget class="QSpinBox" name="spinBox">
+       <widget class="QSpinBox" name="sbx_clientes_cadastro_CEP">
         <property name="geometry">
          <rect>
           <x>90</x>
           <y>30</y>
-          <width>131</width>
+          <width>71</width>
           <height>22</height>
          </rect>
         </property>
@@ -1301,6 +1310,100 @@ p, li { white-space: pre-wrap; }
          <number>10000000</number>
         </property>
        </widget>
+       <widget class="QSpinBox" name="sbx_clientes_cadastro_numero">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>60</y>
+          <width>71</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="wrapping">
+         <bool>true</bool>
+        </property>
+        <property name="frame">
+         <bool>true</bool>
+        </property>
+        <property name="buttonSymbols">
+         <enum>QAbstractSpinBox::NoButtons</enum>
+        </property>
+        <property name="correctionMode">
+         <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
+        </property>
+        <property name="minimum">
+         <number>10000000</number>
+        </property>
+        <property name="maximum">
+         <number>99999999</number>
+        </property>
+        <property name="singleStep">
+         <number>1</number>
+        </property>
+        <property name="value">
+         <number>10000000</number>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clientes_cadastro_rua">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>90</y>
+          <width>390</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clientes_registro_bairro">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>120</y>
+          <width>150</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clientes_registro_cidade">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>150</y>
+          <width>150</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QComboBox" name="comboBox">
+       <property name="geometry">
+        <rect>
+         <x>820</x>
+         <y>70</y>
+         <width>100</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <item>
+        <property name="text">
+         <string>Ruim</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Mediano</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Bom</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ótimo</string>
+        </property>
+       </item>
       </widget>
      </widget>
     </widget>
@@ -1322,7 +1425,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros_2">
       <attribute name="title">
