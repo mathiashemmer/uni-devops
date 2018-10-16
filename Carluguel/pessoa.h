@@ -11,7 +11,6 @@ protected:
     QString nome;
     QString CPF;
     QDate dataNacimento;
-
 public:
     Pessoa();
     Pessoa(Endereco endereco, QString nome, QString CPF, QDate nacimento);
