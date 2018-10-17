@@ -69,7 +69,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -91,7 +91,7 @@
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_carros_registros">
       <property name="palette">
@@ -357,7 +357,7 @@
       <widget class="QFrame" name="frame">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>10</y>
          <width>911</width>
          <height>48</height>
@@ -520,8 +520,8 @@
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -530,7 +530,7 @@ p, li { white-space: pre-wrap; }
       <widget class="QGroupBox" name="groupBox_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>80</y>
          <width>310</width>
          <height>130</height>
@@ -711,8 +711,8 @@ p, li { white-space: pre-wrap; }
       <widget class="QGroupBox" name="groupBox_6">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>220</y>
+         <x>30</x>
+         <y>240</y>
          <width>310</width>
          <height>137</height>
         </rect>
@@ -935,7 +935,7 @@ p, li { white-space: pre-wrap; }
        <bool>true</bool>
       </property>
       <attribute name="title">
-       <string>Cadastros</string>
+       <string>Cadastro</string>
       </attribute>
       <widget class="QFrame" name="frame_2">
        <property name="geometry">
@@ -1097,8 +1097,8 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>30</x>
          <y>80</y>
-         <width>500</width>
-         <height>250</height>
+         <width>371</width>
+         <height>141</height>
         </rect>
        </property>
        <property name="title">
@@ -1513,7 +1513,7 @@ p, li { white-space: pre-wrap; }
      </widget>
      <widget class="QWidget" name="tab_clientes_cadastros_2">
       <attribute name="title">
-       <string>Cadastros</string>
+       <string>Cadastro</string>
       </attribute>
       <widget class="QFrame" name="frame_3">
        <property name="geometry">
@@ -1540,30 +1540,6 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <layout class="QGridLayout" name="gridLayout_8">
-         <item row="0" column="0">
-          <widget class="QLabel" name="lbl_clientes_cadastro_idatual_2">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <property name="text">
-            <string>ID Atual:</string>
-           </property>
-           <property name="indent">
-            <number>-1</number>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="2">
           <spacer name="horizontalSpacer_5">
            <property name="minimumSize">
@@ -1600,7 +1576,31 @@ p, li { white-space: pre-wrap; }
             <enum>QFrame::NoFrame</enum>
            </property>
            <property name="text">
-            <string>Conceito:</string>
+            <string>Tipo: </string>
+           </property>
+           <property name="indent">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lbl_clientes_cadastro_idatual_2">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>ID Atual:</string>
            </property>
            <property name="indent">
             <number>-1</number>
@@ -1660,7 +1660,7 @@ p, li { white-space: pre-wrap; }
             <enum>QFrame::NoFrame</enum>
            </property>
            <property name="text">
-            <string>Conceito:</string>
+            <string>Aluguel</string>
            </property>
            <property name="indent">
             <number>-1</number>
@@ -1675,12 +1675,12 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>30</x>
          <y>80</y>
-         <width>500</width>
-         <height>250</height>
+         <width>371</width>
+         <height>141</height>
         </rect>
        </property>
        <property name="title">
-        <string>Dados Pessoais</string>
+        <string>Dados do Contrato</string>
        </property>
        <widget class="QWidget" name="layoutWidget_4">
         <property name="geometry">
@@ -1697,21 +1697,21 @@ p, li { white-space: pre-wrap; }
            <item>
             <widget class="QLabel" name="label_9">
              <property name="text">
-              <string>Nome:</string>
+              <string>Participante:</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_10">
              <property name="text">
-              <string>CPF:</string>
+              <string>ID do Participante</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QLabel" name="label_11">
              <property name="text">
-              <string>Data Nascimento:</string>
+              <string>ID(s) do(s) Carro(s)</string>
              </property>
             </widget>
            </item>
@@ -1721,54 +1721,14 @@ p, li { white-space: pre-wrap; }
           <layout class="QGridLayout" name="gridLayout_9">
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_10">
-             <item row="0" column="0">
+             <item row="2" column="0">
               <widget class="QLineEdit" name="txt_clietes_registros_nome_2"/>
              </item>
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="txt_clietes_registros_nome_3"/>
+             </item>
              <item row="1" column="0">
-              <layout class="QGridLayout" name="gridLayout_11">
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="txt_clietes_registros_CPF_2"/>
-               </item>
-               <item row="0" column="2">
-                <spacer name="horizontalSpacer_6">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>25</width>
-                   <height>19</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
-             </item>
-            </layout>
-           </item>
-           <item row="1" column="0">
-            <layout class="QHBoxLayout" name="horizontalLayout_4">
-             <item>
-              <widget class="QDateEdit" name="dtf_clietes_registros_nascimento_2"/>
-             </item>
-             <item>
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>90</width>
-                 <height>17</height>
-                </size>
-               </property>
-              </spacer>
+              <widget class="QLineEdit" name="txt_clietes_registros_nome_4"/>
              </item>
             </layout>
            </item>
@@ -1782,111 +1742,70 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>30</x>
          <y>340</y>
-         <width>500</width>
-         <height>180</height>
+         <width>371</width>
+         <height>141</height>
         </rect>
        </property>
        <property name="title">
-        <string>Endereço</string>
+        <string>Dados do Contrato</string>
        </property>
-       <widget class="QLabel" name="label_12">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>70</y>
-          <width>41</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Rua:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_13">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>90</y>
-          <width>41</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Bairro:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_14">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>110</y>
-          <width>51</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Cidade:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_15">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>50</y>
-          <width>51</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string>Numero:</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_16">
+       <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
          <rect>
           <x>20</x>
           <y>30</y>
-          <width>51</width>
-          <height>24</height>
+          <width>342</width>
+          <height>98</height>
          </rect>
         </property>
-        <property name="text">
-         <string>CEP:</string>
-        </property>
-       </widget>
-       <widget class="QSpinBox" name="spinBox_2">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>30</y>
-          <width>131</width>
-          <height>22</height>
-         </rect>
-        </property>
-        <property name="wrapping">
-         <bool>true</bool>
-        </property>
-        <property name="frame">
-         <bool>true</bool>
-        </property>
-        <property name="buttonSymbols">
-         <enum>QAbstractSpinBox::NoButtons</enum>
-        </property>
-        <property name="correctionMode">
-         <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
-        </property>
-        <property name="minimum">
-         <number>10000000</number>
-        </property>
-        <property name="maximum">
-         <number>99999999</number>
-        </property>
-        <property name="singleStep">
-         <number>1</number>
-        </property>
-        <property name="value">
-         <number>10000000</number>
-        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="text">
+              <string>Valor:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="text">
+              <string>Data de Início:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="text">
+              <string>Data de Retorno:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_11">
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_12">
+             <item row="1" column="0">
+              <widget class="QDateEdit" name="dateEdit"/>
+             </item>
+             <item row="2" column="0">
+              <widget class="QDateEdit" name="dateEdit_2"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox">
+               <property name="maximum">
+                <double>10000000000000000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </widget>
      </widget>
@@ -1899,6 +1818,391 @@ p, li { white-space: pre-wrap; }
     <attribute name="title">
      <string>Financeiro</string>
     </attribute>
+    <widget class="QTabWidget" name="tab_clientes_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>950</width>
+       <height>560</height>
+      </rect>
+     </property>
+     <property name="currentIndex">
+      <number>1</number>
+     </property>
+     <widget class="QWidget" name="tab_clientes_registros_6">
+      <attribute name="title">
+       <string>Registros</string>
+      </attribute>
+      <widget class="QTableWidget" name="tbl_clientes_registros_6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>661</width>
+         <height>511</height>
+        </rect>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="showGrid">
+        <bool>true</bool>
+       </property>
+       <property name="gridStyle">
+        <enum>Qt::NoPen</enum>
+       </property>
+       <property name="cornerButtonEnabled">
+        <bool>false</bool>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>93</number>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>40</number>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Nome</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>CPF</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Conceito</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_20">
+       <property name="geometry">
+        <rect>
+         <x>680</x>
+         <y>10</y>
+         <width>241</width>
+         <height>511</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Filtros</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_clientes_cadastros_6">
+      <attribute name="title">
+       <string>Cadastro</string>
+      </attribute>
+      <widget class="QFrame" name="frame_7">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>911</width>
+         <height>48</height>
+        </rect>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::Box</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Plain</enum>
+       </property>
+       <widget class="QWidget" name="layoutWidget_15">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>0</y>
+          <width>890</width>
+          <height>50</height>
+         </rect>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_28">
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_9">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>77</width>
+             <height>21</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="lbl_clientes_cadastro_conceito_6">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Tipo: </string>
+           </property>
+           <property name="indent">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="lbl_clientes_cadastro_idatual_6">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>ID Atual:</string>
+           </property>
+           <property name="indent">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLabel" name="lbl_clientes_cadastro_id_6">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="layoutDirection">
+            <enum>Qt::LeftToRight</enum>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>-1</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+           <property name="indent">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QLabel" name="lbl_clientes_cadastro_conceito_display_6">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Pagamento</string>
+           </property>
+           <property name="indent">
+            <number>-1</number>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_21">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>80</y>
+         <width>371</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Informações da Conta</string>
+       </property>
+       <widget class="QWidget" name="layoutWidget_16">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>342</width>
+          <height>98</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_11">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>Envolvido:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_34">
+             <property name="text">
+              <string>Valor: </string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_35">
+             <property name="text">
+              <string>Referente à:</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_29">
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_30">
+             <item row="2" column="0">
+              <widget class="QLineEdit" name="txt_clietes_registros_nome_14"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QLineEdit" name="txt_clietes_registros_nome_15"/>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLineEdit" name="txt_clietes_registros_nome_16"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QGroupBox" name="groupBox_22">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>340</y>
+         <width>371</width>
+         <height>141</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Dados do Contrato</string>
+       </property>
+       <widget class="QWidget" name="layoutWidget_17">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>30</y>
+          <width>342</width>
+          <height>98</height>
+         </rect>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_12">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_11">
+           <item>
+            <widget class="QLabel" name="label_36">
+             <property name="text">
+              <string>Valor:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_38">
+             <property name="text">
+              <string>Data do Pamento</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QGridLayout" name="gridLayout_31">
+           <item row="0" column="0">
+            <layout class="QGridLayout" name="gridLayout_32">
+             <item row="1" column="0">
+              <widget class="QDateEdit" name="dateEdit_10"/>
+             </item>
+             <item row="0" column="0">
+              <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+               <property name="maximum">
+                <double>10000000000000000.000000000000000</double>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab_cadastros_funcionarios">
     <property name="autoFillBackground">
