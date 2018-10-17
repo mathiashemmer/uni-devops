@@ -1,14 +1,27 @@
 #ifndef CONTRATO_H
 #define CONTRATO_H
 
-#include <QVector>
+#include <QDate>
 
 class Contrato
 {
 private:
-    QVector<unsigned int> idCarros;
+    unsigned int meuID;
+    unsigned int idCarro;
+    double valor;
+    QDate inicio;
+    QDate fim;
 public:
     Contrato();
+    unsigned int getMeuID() const;
+    unsigned int getIdCarro() const;
+    void setIdCarro(unsigned int value);
+    double getValor() const;
+    void setValor(double value);
+    QDate getInicio() const;
+    void setInicio(const QDate &value);
+    QDate getFim() const;
+    void setFim(const QDate &value);
 };
 
 #endif // CONTRATO_H

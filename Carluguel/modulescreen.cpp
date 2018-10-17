@@ -33,6 +33,7 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_clientes_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     CarregaListaCarros();
+    CarregaListaClientes();
 }
 
 ModuleScreen::~ModuleScreen()

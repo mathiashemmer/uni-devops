@@ -5,6 +5,8 @@
 #include <QLinkedList>
 #include <carro.h>
 #include <cliente.h>
+#include <aluguel.h>
+#include <manutencao.h>
 
 namespace Ui {
 class ModuleScreen;
@@ -20,6 +22,7 @@ public:
 
     QLinkedList<Carro*> dbCarros;
     QLinkedList<Cliente*> dbClientes;
+    QLinkedList<Aluguel*> dbAlugueis;
 
     // Auxiliares
     void CarregaListaCarros();
