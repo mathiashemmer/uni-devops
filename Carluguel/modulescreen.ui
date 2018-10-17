@@ -69,7 +69,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -708,7 +708,7 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </widget>
-      <widget class="QGroupBox" name="groupBox_6">
+      <widget class="QGroupBox" name="gb_carros_cadastro_tecnico">
        <property name="geometry">
         <rect>
          <x>30</x>
@@ -722,14 +722,14 @@ p, li { white-space: pre-wrap; }
        </property>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
-         <widget class="QLabel" name="lbl_carros_cadastro_cor_3">
+         <widget class="QLabel" name="lbl_carros_cadastro_placa">
           <property name="text">
            <string>Placa:</string>
           </property>
          </widget>
         </item>
         <item row="0" column="1">
-         <widget class="QLabel" name="lbl_carros_cadastro_cor_4">
+         <widget class="QLabel" name="lbl_carros_cadastro_chassi">
           <property name="text">
            <string>Chassi:</string>
           </property>
@@ -750,14 +750,14 @@ p, li { white-space: pre-wrap; }
          </widget>
         </item>
         <item row="2" column="0">
-         <widget class="QLabel" name="lbl_carros_cadastro_cor_6">
+         <widget class="QLabel" name="lbl_carros_cadastro_km">
           <property name="text">
            <string>Km:</string>
           </property>
          </widget>
         </item>
         <item row="2" column="1">
-         <widget class="QLabel" name="lbl_carros_cadastro_cor_5">
+         <widget class="QLabel" name="lbl_carros_cadastro_kmrev">
           <property name="text">
            <string>Km Rev:</string>
           </property>
@@ -1415,7 +1415,7 @@ p, li { white-space: pre-wrap; }
     <attribute name="title">
      <string>Contratos</string>
     </attribute>
-    <widget class="QTabWidget" name="tab_clientes_2">
+    <widget class="QTabWidget" name="tab_contratos">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -1427,11 +1427,11 @@ p, li { white-space: pre-wrap; }
      <property name="currentIndex">
       <number>1</number>
      </property>
-     <widget class="QWidget" name="tab_clientes_registros_2">
+     <widget class="QWidget" name="tab_contratos_registros">
       <attribute name="title">
        <string>Registros</string>
       </attribute>
-      <widget class="QTableWidget" name="tbl_clientes_registros_2">
+      <widget class="QTableWidget" name="tbl_contratos_registros">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1497,7 +1497,7 @@ p, li { white-space: pre-wrap; }
         </property>
        </column>
       </widget>
-      <widget class="QGroupBox" name="groupBox_8">
+      <widget class="QGroupBox" name="gb_contratos_registros_filtro">
        <property name="geometry">
         <rect>
          <x>680</x>
@@ -1511,11 +1511,11 @@ p, li { white-space: pre-wrap; }
        </property>
       </widget>
      </widget>
-     <widget class="QWidget" name="tab_clientes_cadastros_2">
+     <widget class="QWidget" name="tab_contratos_cadastros">
       <attribute name="title">
        <string>Cadastro</string>
       </attribute>
-      <widget class="QFrame" name="frame_3">
+      <widget class="QFrame" name="frm_contratos_cadastro">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -1539,7 +1539,7 @@ p, li { white-space: pre-wrap; }
           <height>50</height>
          </rect>
         </property>
-        <layout class="QGridLayout" name="gridLayout_8">
+        <layout class="QGridLayout" name="gl_contratos_cadastro">
          <item row="0" column="2">
           <spacer name="horizontalSpacer_5">
            <property name="minimumSize">
@@ -1560,7 +1560,7 @@ p, li { white-space: pre-wrap; }
           </spacer>
          </item>
          <item row="0" column="3">
-          <widget class="QLabel" name="lbl_clientes_cadastro_conceito_2">
+          <widget class="QLabel" name="lbl_contratos_cadastro_tipo">
            <property name="minimumSize">
             <size>
              <width>0</width>
@@ -1584,7 +1584,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QLabel" name="lbl_clientes_cadastro_idatual_2">
+          <widget class="QLabel" name="lbl_contratos_cadastro_idatual">
            <property name="minimumSize">
             <size>
              <width>80</width>
@@ -1608,7 +1608,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLabel" name="lbl_clientes_cadastro_id_2">
+          <widget class="QLabel" name="lbl_contratos_cadastro_id">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -1644,7 +1644,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="0" column="4">
-          <widget class="QLabel" name="lbl_clientes_cadastro_conceito_display_2">
+          <widget class="QLabel" name="lbl_contratos_cadastro_tipoo">
            <property name="minimumSize">
             <size>
              <width>0</width>
