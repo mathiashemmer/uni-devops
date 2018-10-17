@@ -69,11 +69,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-<<<<<<< HEAD
     <number>1</number>
-=======
-    <number>2</number>
->>>>>>> dc3de23be7de671daa3e392897bbb145cc2e3746
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
