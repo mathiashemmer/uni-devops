@@ -12,15 +12,19 @@ void Cliente::setConceito(const ConceitoCliente &value)
     conceito = value;
 }
 
+unsigned int Cliente::getMeuID() const
+{
+    return meuID;
+}
+
 bool Cliente::AutoInc()
 {
     ID++;
     return true;
 }
 
-Cliente::Cliente(Endereco endereco, QString nome, QString CPF, QDate nacimento, ConceitoCliente conceito)
+Cliente::Cliente(Endereco endereco, QString nome, QString CPF, QDate nacimento, ConceitoCliente conceito) : Pessoa(endereco, nome, CPF, nacimento)
 {
-    Pessoa(endereco, nome, CPF, nacimento);
     this->conceito = conceito;
     meuID = ID;
     AutoInc();

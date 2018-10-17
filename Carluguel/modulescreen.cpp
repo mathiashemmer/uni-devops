@@ -7,23 +7,31 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->setupUi(this);
 
     // Preenche listas com valores arbritratios
-    dbCarros.append(new Carro(100,0, "T", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(50,0, "T", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(20,0, "T", "AMM", "B", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(35,0, "T", "AMM", "B", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(99,0, "T", "AMM", "C", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(0,0, "T", "AMM", "C", "asd", 1, StatusCarro::Alugado));
-    dbCarros.append(new Carro(0,0, "T", "AMM", "C", "asd", 1, StatusCarro::Alugado));
-    dbCarros.append(new Carro(0,0, "T", "AMM", "A", "asd", 1, StatusCarro::Alugado));
-    dbCarros.append(new Carro(0,0, "T", "AMM", "A", "asd", 1, StatusCarro::Alugado));
-    dbCarros.append(new Carro(0,0, "T", "AMM", "A", "asd", 1, StatusCarro::Alugado));
+    dbCarros.append(new Carro(100,0, "Corsa", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
+    dbCarros.append(new Carro(50,0, "HB20", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
+    dbCarros.append(new Carro(85,0, "Toroto", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
+
+    Endereco endereco;
+    QDate data = QDate::currentDate();
+    dbClientes.append(new Cliente(endereco, "Roberto", "1234567899", data, ConceitoCliente::Ruim));
+    dbClientes.append(new Cliente(endereco, "Alex", "987654321", data, ConceitoCliente::Mediano));
+    dbClientes.append(new Cliente(endereco, "Cleberson", "159753", data, ConceitoCliente::Otimo));
 
 
+    // Setup das listas-----------------------
 
-    // Setup das listas
+    //Carros
     ui->tbl_carros_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tbl_carros_registros->setColumnWidth(0, 25);
     ui->tbl_carros_registros->verticalHeader()->setDefaultSectionSize(24);
+
+    //Clientes
+    ui->tbl_clientes_registros->setColumnWidth(0, 25);
+    ui->tbl_clientes_registros->setColumnWidth(1, 325);
+    ui->tbl_clientes_registros->setColumnWidth(2, 175);
+    ui->tbl_clientes_registros->verticalHeader()->setDefaultSectionSize(24);
+    ui->tbl_clientes_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
     CarregaListaCarros();
 }
 
@@ -233,3 +241,85 @@ void ModuleScreen::on_btn_carros_cadastro_excluir_clicked()
     CarregaListaCarros();
 }
 
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+// CLIENTES
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+
+
+void ModuleScreen::CarregaListaClientes()
+{
+    unsigned short mask[2] = {0, 0};
+    QString fNome;
+    int fConceito = -1;
+    (fNome = ui->txt_clientes_registros_filtro_nome->text()).length() > 1 ? mask[0] = 1 : mask[0] = 1;
+    (fConceito = ui->cbx_clientes_registros_filtro_conceito->currentIndex() -1) >= 0 ? mask[1] = 1 : mask[1] = 0;
+
+    int filtro = mask[0] + mask[1]*2;
+
+    ui->tbl_clientes_registros->setRowCount(0);
+
+    QLinkedList<Cliente> filteredList;
+    auto iter = dbClientes.begin();
+    Cliente *atual = nullptr;
+    while(iter != dbClientes.end()){
+        atual = iter.i->t;
+        switch (filtro) {
+        case 0: // Sem filtro
+            filteredList.append(*atual);
+            break;
+        case 1: // Filtro por [nome]
+            if(atual->getNome().contains(fNome)){
+                filteredList.append(*atual);
+            }
+            break;
+        case 2: // Filtro por [conceito]
+            if(atual->getConceito() == fConceito){
+                filteredList.append(*atual);
+            }
+            break;
+        case 3: // Filtro por [nome] [conceito]
+            if(atual->getNome().contains(fNome) && atual->getConceito() == fConceito){
+                filteredList.append(*atual);
+            }
+            break;
+        }
+        ++iter;
+    }
+    auto filteredIter = filteredList.begin();
+    auto tabela = ui->tbl_clientes_registros;
+    while(filteredIter != filteredList.end()){
+        Cliente atual = filteredIter.i->t;
+        int curRow = tabela->rowCount();
+        tabela->insertRow(curRow);
+        tabela->setItem(curRow, 0, new QTableWidgetItem(QString::number(atual.getMeuID())));
+        tabela->setItem(curRow, 1, new QTableWidgetItem(atual.getNome()));
+        tabela->setItem(curRow, 2, new QTableWidgetItem(atual.getCPF()));
+        tabela->setItem(curRow, 3, new QTableWidgetItem(
+                            atual.getConceito() == 0 ? "Ruim" :
+                            atual.getConceito() == 1 ? "Mediano" :
+                            atual.getConceito() == 2 ? "Bom" : "Otimo"));
+        ++filteredIter;
+    }
+}
+
+void ModuleScreen::AjustaPadraoEntradaClientes()
+{
+
+}
+
+void ModuleScreen::on_tab_clientes_currentChanged(int index)
+{
+    if(index == 0){
+        CarregaListaClientes();
+    }
+}
+
+void ModuleScreen::on_txt_clientes_registros_filtro_nome_textChanged(const QString &arg1)
+{
+    CarregaListaClientes();
+}
+
+void ModuleScreen::on_cbx_clientes_registros_filtro_conceito_currentIndexChanged(int index)
+{
+    CarregaListaClientes();
+}

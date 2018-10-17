@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QLinkedList>
 #include <carro.h>
+#include <cliente.h>
 
 namespace Ui {
 class ModuleScreen;
@@ -18,10 +19,14 @@ public:
     ~ModuleScreen();
 
     QLinkedList<Carro*> dbCarros;
+    QLinkedList<Cliente*> dbClientes;
 
     // Auxiliares
     void CarregaListaCarros();
     void AjustaPadraoEntradaCarros();
+
+    void CarregaListaClientes();
+    void AjustaPadraoEntradaClientes();
 
 private slots:
     void on_tab_carros_currentChanged(int index);
@@ -36,6 +41,11 @@ private slots:
     void on_btn_carros_cadastro_excluir_clicked();
 
     void on_txt_carros_registros_filtro_modelo_textChanged(const QString &arg1);
+    void on_tab_clientes_currentChanged(int index);
+
+    void on_txt_clientes_registros_filtro_nome_textChanged(const QString &arg1);
+
+    void on_cbx_clientes_registros_filtro_conceito_currentIndexChanged(int index);
 
 private:
     Ui::ModuleScreen *ui;

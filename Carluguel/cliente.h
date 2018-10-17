@@ -18,6 +18,7 @@ public:
     ~Cliente();
     ConceitoCliente getConceito() const;
     void setConceito(const ConceitoCliente &value);
+    unsigned int getMeuID() const;
 };
 
 #endif // CLIENTE_H
