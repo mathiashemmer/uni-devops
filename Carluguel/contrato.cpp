@@ -45,7 +45,26 @@ void Contrato::setFim(const QDate &value)
     fim = value;
 }
 
+/*bool Contrato::AutoInc()
+{
+    ID++;
+    return true;
+}*/
+
 Contrato::Contrato()
 {
     
+}
+
+Contrato::~Contrato()
+{
+
+}
+
+Contrato::Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim)
+{
+    this->setIdCarro(idCarro);
+    this->setValor(valor);
+    this->setInicio(inicio);
+    this->setFim(fim);
 }

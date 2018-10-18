@@ -12,7 +12,11 @@ private:
     QDate inicio;
     QDate fim;
 public:
+    static unsigned int ID;
+    static bool AutoInc();
     Contrato();
+    virtual ~Contrato();
+    Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim);
     unsigned int getMeuID() const;
     unsigned int getIdCarro() const;
     void setIdCarro(unsigned int value);

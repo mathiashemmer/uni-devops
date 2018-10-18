@@ -162,7 +162,7 @@ void ModuleScreen::on_tbl_carros_registros_cellDoubleClicked(int row, int column
         ++iter;
     }
     if(atual != nullptr){
-       //😋🐦🌂🥃⛱📦📁🇩🇪
+       //😋🐦🌂 🥃⛱📦📁🇩🇪
         ui->tab_carros->setCurrentIndex(1);
         ui->cbx_carros_cadstro_cor->setCurrentIndex(atual->getCor());
         ui->cbx_carros_cadstro_status->setCurrentIndex(atual->getDisponibilidade());
@@ -323,4 +323,28 @@ void ModuleScreen::on_txt_clientes_registros_filtro_nome_textChanged(const QStri
 void ModuleScreen::on_cbx_clientes_registros_filtro_conceito_currentIndexChanged(int index)
 {
     CarregaListaClientes();
+}
+
+////////////////////////////////////////
+// CONTRATOS - ALUGUEIS E MANUTENÇÕES //
+////////////////////////////////////////
+
+void ModuleScreen::AjustaPadraoEntradaContratos()
+{
+    QDate data = QDate::currentDate();
+    ui->de_contratos_cadastro_inicio->setDate(data);
+    data.setDate(data.year(), data.month(), data.day() + 1);
+    ui->de_contratos_cadastro_fim->setDate(data);
+    ui->txt_contratos_cadastro_idPartic->setText("");
+    ui->txt_contratos_cadastro_jdCarros->setText("");
+    ui->cb_contratos_cadastro_tipo->setCurrentIndex(0);
+    ui->dsb_contratos_cadastro_valor->setValue(0.00);
+}
+
+void ModuleScreen::on_tab_contratos_currentChanged(int index)
+{
+    if(index == 0)
+    {
+        AjustaPadraoEntradaContratos();
+    }
 }

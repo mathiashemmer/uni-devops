@@ -9,6 +9,8 @@ private:
     unsigned int idCliente;
 public:
     Aluguel();
+    ~Aluguel();
+    Aluguel(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idCliente);
     unsigned int getIdCliente() const;
     void setIdCliente(unsigned int value);
 };

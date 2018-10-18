@@ -69,7 +69,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -236,6 +236,18 @@
          <width>661</width>
          <height>511</height>
         </rect>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>1</width>
+         <height>1</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>1</width>
+         <height>1</height>
+        </size>
        </property>
        <property name="alternatingRowColors">
         <bool>true</bool>
@@ -841,7 +853,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros">
       <property name="autoFillBackground">
@@ -978,7 +990,7 @@ p, li { white-space: pre-wrap; }
          <rect>
           <x>20</x>
           <y>100</y>
-          <width>55</width>
+          <width>71</width>
           <height>20</height>
          </rect>
         </property>
@@ -1489,6 +1501,45 @@ p, li { white-space: pre-wrap; }
         </property>
        </item>
       </widget>
+      <widget class="QPushButton" name="btn_carros_cadastro_novo_2">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Gravar</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_carros_cadastro_novo_3">
+       <property name="geometry">
+        <rect>
+         <x>730</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Novo</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_carros_cadastro_novo_4">
+       <property name="geometry">
+        <rect>
+         <x>830</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Excluir</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -1535,6 +1586,9 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="gridStyle">
         <enum>Qt::NoPen</enum>
+       </property>
+       <property name="sortingEnabled">
+        <bool>true</bool>
        </property>
        <property name="cornerButtonEnabled">
         <bool>false</bool>
@@ -1624,49 +1678,6 @@ p, li { white-space: pre-wrap; }
          </rect>
         </property>
         <layout class="QGridLayout" name="gl_contratos_cadastro">
-         <item row="0" column="2">
-          <spacer name="horizontalSpacer_5">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>77</width>
-             <height>21</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="0" column="3">
-          <widget class="QLabel" name="lbl_contratos_cadastro_tipo">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
-           </property>
-           <property name="text">
-            <string>Tipo: </string>
-           </property>
-           <property name="indent">
-            <number>-1</number>
-           </property>
-          </widget>
-         </item>
          <item row="0" column="0">
           <widget class="QLabel" name="lbl_contratos_cadastro_idatual">
            <property name="minimumSize">
@@ -1727,29 +1738,24 @@ p, li { white-space: pre-wrap; }
            </property>
           </widget>
          </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="lbl_contratos_cadastro_tipoo">
+         <item row="0" column="2">
+          <spacer name="horizontalSpacer_5">
            <property name="minimumSize">
             <size>
-             <width>0</width>
-             <height>0</height>
+             <width>80</width>
+             <height>24</height>
             </size>
            </property>
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
            </property>
-           <property name="frameShape">
-            <enum>QFrame::NoFrame</enum>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>77</width>
+             <height>21</height>
+            </size>
            </property>
-           <property name="text">
-            <string>Aluguel</string>
-           </property>
-           <property name="indent">
-            <number>-1</number>
-           </property>
-          </widget>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -1777,34 +1783,34 @@ p, li { white-space: pre-wrap; }
         </property>
         <layout class="QFormLayout" name="formLayout">
          <item row="0" column="0">
-          <widget class="QLabel" name="label_19">
+          <widget class="QLabel" name="lbl_contratos_cadastro_idPartic">
            <property name="text">
             <string>ID do Participante:</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit_3"/>
+          <widget class="QLineEdit" name="txt_contratos_cadastro_idPartic"/>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="label_20">
+          <widget class="QLabel" name="lbl_contratos_cadastro_idCarros">
            <property name="text">
             <string>ID(s) do(s) Carro(s)</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="lineEdit"/>
+          <widget class="QLineEdit" name="txt_contratos_cadastro_jdCarros"/>
          </item>
          <item row="2" column="0">
-          <widget class="QLabel" name="label_21">
+          <widget class="QLabel" name="lbl_contratos_cadastro_tipo">
            <property name="text">
             <string>Tipo do Contrato</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QComboBox" name="comboBox_3">
+          <widget class="QComboBox" name="cb_contratos_cadastro_tipo">
            <item>
             <property name="text">
              <string>Aluguel</string>
@@ -1845,21 +1851,21 @@ p, li { white-space: pre-wrap; }
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QLabel" name="label_12">
+            <widget class="QLabel" name="lbl_contratos_cadastro_valor">
              <property name="text">
               <string>Valor:</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_13">
+            <widget class="QLabel" name="lbl_contratos_cadastro_inicio">
              <property name="text">
               <string>Data de Início:</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="label_14">
+            <widget class="QLabel" name="lbl_contratos_cadastro_fim">
              <property name="text">
               <string>Data de Retorno:</string>
              </property>
@@ -1872,13 +1878,13 @@ p, li { white-space: pre-wrap; }
            <item row="0" column="0">
             <layout class="QGridLayout" name="gridLayout_12">
              <item row="1" column="0">
-              <widget class="QDateEdit" name="dateEdit"/>
+              <widget class="QDateEdit" name="de_contratos_cadastro_inicio"/>
              </item>
              <item row="2" column="0">
-              <widget class="QDateEdit" name="dateEdit_2"/>
+              <widget class="QDateEdit" name="de_contratos_cadastro_fim"/>
              </item>
              <item row="0" column="0">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox">
+              <widget class="QDoubleSpinBox" name="dsb_contratos_cadastro_valor">
                <property name="maximum">
                 <double>10000000000000000.000000000000000</double>
                </property>
@@ -1890,6 +1896,45 @@ p, li { white-space: pre-wrap; }
          </item>
         </layout>
        </widget>
+      </widget>
+      <widget class="QPushButton" name="btn_contratos_cadastro_gravar">
+       <property name="geometry">
+        <rect>
+         <x>630</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Gravar</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_contratos_cadastro_excluir">
+       <property name="geometry">
+        <rect>
+         <x>830</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Excluir</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btn_contratos_cadastro_novo">
+       <property name="geometry">
+        <rect>
+         <x>730</x>
+         <y>500</y>
+         <width>100</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Novo</string>
+       </property>
       </widget>
      </widget>
     </widget>
