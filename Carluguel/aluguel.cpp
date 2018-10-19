@@ -20,7 +20,7 @@ Aluguel::~Aluguel()
 
 }
 
-Aluguel::Aluguel(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idCliente) : Contrato(idCarro, valor, inicio, fim)
+Aluguel::Aluguel(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idCliente, short tipo) : Contrato(idCarro, valor, inicio, fim, tipo)
 {
     this->setIdCliente(idCliente);
 }

@@ -24,6 +24,7 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_carros_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->tbl_carros_registros->setColumnWidth(0, 25);
     ui->tbl_carros_registros->verticalHeader()->setDefaultSectionSize(24);
+    ui->tbl_carros_registros->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     //Clientes
     ui->tbl_clientes_registros->setColumnWidth(0, 25);
@@ -32,10 +33,11 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_clientes_registros->verticalHeader()->setDefaultSectionSize(24);
     ui->tbl_clientes_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    ui->tbl_carros_registros->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    //Contratos
 
     CarregaListaCarros();
     CarregaListaClientes();
+    CarregaListaContratos();
 }
 
 ModuleScreen::~ModuleScreen()
@@ -338,7 +340,7 @@ void ModuleScreen::AjustaPadraoEntradaContratos()
     data.setDate(data.year(), data.month(), data.day() + 1);
     ui->de_contratos_cadastro_fim->setDate(data);
     ui->txt_contratos_cadastro_idPartic->setText("");
-    ui->txt_contratos_cadastro_jdCarros->setText("");
+    ui->txt_contratos_cadastro_idCarros->setText("");
     ui->cb_contratos_cadastro_tipo->setCurrentIndex(0);
     ui->dsb_contratos_cadastro_valor->setValue(0.00);
 }
@@ -348,5 +350,68 @@ void ModuleScreen::on_tab_contratos_currentChanged(int index)
     if(index == 0)
     {
         AjustaPadraoEntradaContratos();
+    }
+}
+
+void ModuleScreen::on_btn_contratos_cadastro_novo_clicked()
+{
+    if(ui->cb_contratos_cadastro_tipo->currentIndex() == 0) {
+        Aluguel *novoAluguel = new Aluguel(
+                    ui->txt_contratos_cadastro_idCarros->text().toUInt(),
+                    ui->dsb_contratos_cadastro_valor->text().toDouble(),
+                    ui->de_contratos_cadastro_inicio->date(),
+                    ui->de_contratos_cadastro_fim->date(),
+                    ui->txt_contratos_cadastro_idPartic->text().toUInt(),
+                    0
+        );
+        if(novoAluguel != nullptr)
+            dbAlugueis.append(novoAluguel);
+    } else if(ui->cb_contratos_cadastro_tipo->currentIndex() == 1) {
+        Manuten *novaManuten = new Manuten(
+                    ui->txt_contratos_cadastro_idCarros->text().toUInt(),
+                    ui->dsb_contratos_cadastro_valor->text().toDouble(),
+                    ui->de_contratos_cadastro_inicio->date(),
+                    ui->de_contratos_cadastro_fim->date(),
+                    ui->txt_contratos_cadastro_idPartic->text().toUInt(),
+                    1
+        );
+        if(novaManuten != nullptr)
+            dbManuten.append(novaManuten);
+    }
+    ui->tab_contratos->setCurrentIndex(0);
+    CarregaListaContratos();
+}
+
+void ModuleScreen::CarregaListaContratos()
+{
+
+    ui->tbl_contratos_registros->setRowCount(0);
+    auto tabela = ui->tbl_contratos_registros;
+    auto iter = dbAlugueis.begin();
+    Aluguel *atual = nullptr;
+    while(iter != dbAlugueis.end()) {
+        atual = iter.i->t;
+        int curRow = tabela->rowCount();
+        tabela->insertRow(curRow);
+        tabela->setItem(curRow, 0, new QTableWidgetItem(QString::number(atual->getMeuID())));
+        tabela->setItem(curRow, 1, new QTableWidgetItem(QString::number(atual->getIdCliente())));
+        tabela->setItem(curRow, 2, new QTableWidgetItem(QString::number(atual->getIdCarro())));
+        tabela->setItem(curRow, 3, new QTableWidgetItem(
+                            atual->getTipo() == 0 ? "Aluguel" : "Manutenção"));
+        ++iter;
+    }
+
+    auto iter2 = dbManuten.begin();
+    Manuten *atual2 = nullptr;
+    while(iter2 != dbManuten.end()) {
+        atual2 = iter2.i->t;
+        int curRow = tabela->rowCount();
+        tabela->insertRow(curRow);
+        tabela->setItem(curRow, 0, new QTableWidgetItem(QString::number(atual2->getMeuID())));
+        tabela->setItem(curRow, 1, new QTableWidgetItem(QString::number(atual2->getIdTerceiro())));
+        tabela->setItem(curRow, 2, new QTableWidgetItem(QString::number(atual2->getIdCarro())));
+        tabela->setItem(curRow, 3, new QTableWidgetItem(
+                            atual2->getTipo() == 0 ? "Aluguel" : "Manutenção"));
+        ++iter2;
     }
 }

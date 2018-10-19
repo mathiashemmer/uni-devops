@@ -20,7 +20,7 @@ Manuten::~Manuten()
 
 }
 
-Manuten::Manuten(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idTerceiro) : Contrato(idCarro, valor, inicio, fim)
+Manuten::Manuten(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idTerceiro, short tipo) : Contrato(idCarro, valor, inicio, fim, tipo)
 {
     this->setIdTerceiro(idTerceiro);
 }

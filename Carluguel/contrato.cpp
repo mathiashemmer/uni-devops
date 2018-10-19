@@ -1,5 +1,7 @@
 #include "contrato.h"
 
+unsigned int Contrato::ID = 0;
+
 unsigned int Contrato::getMeuID() const
 {
     return meuID;
@@ -45,15 +47,25 @@ void Contrato::setFim(const QDate &value)
     fim = value;
 }
 
-/*bool Contrato::AutoInc()
+void Contrato::setTipo(const short &value)
+{
+    tipo = value;
+}
+
+short Contrato::getTipo() const
+{
+    return tipo;
+}
+
+bool Contrato::AutoInc()
 {
     ID++;
     return true;
-}*/
+}
 
 Contrato::Contrato()
 {
-    
+    AutoInc();
 }
 
 Contrato::~Contrato()
@@ -61,10 +73,14 @@ Contrato::~Contrato()
 
 }
 
-Contrato::Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim)
+Contrato::Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim, short tipo)
 {
     this->setIdCarro(idCarro);
     this->setValor(valor);
     this->setInicio(inicio);
     this->setFim(fim);
+    this->setTipo(tipo);
+
+    this->meuID = Contrato::ID;
+    AutoInc();
 }

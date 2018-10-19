@@ -56,6 +56,8 @@ private slots:
 
     void on_tab_contratos_currentChanged(int index);
 
+    void on_btn_contratos_cadastro_novo_clicked();
+
 private:
     Ui::ModuleScreen *ui;
 };

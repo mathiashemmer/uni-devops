@@ -271,10 +271,10 @@
         <number>0</number>
        </property>
        <attribute name="horizontalHeaderVisible">
-        <bool>true</bool>
+        <bool>false</bool>
        </attribute>
        <attribute name="horizontalHeaderCascadingSectionResizes">
-        <bool>true</bool>
+        <bool>false</bool>
        </attribute>
        <attribute name="horizontalHeaderDefaultSectionSize">
         <number>93</number>
@@ -870,7 +870,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros">
       <property name="autoFillBackground">
@@ -1577,7 +1577,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_contratos_registros">
       <attribute name="title">
@@ -1635,20 +1635,77 @@ p, li { white-space: pre-wrap; }
         <property name="text">
          <string>ID</string>
         </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Nome</string>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>CPF</string>
+         <string>ID Partic</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
        </column>
        <column>
         <property name="text">
-         <string>Conceito</string>
+         <string>ID Carro</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Tipo</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Valor</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Início</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Fim</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
        </column>
       </widget>
@@ -1817,7 +1874,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="1" column="1">
-          <widget class="QLineEdit" name="txt_contratos_cadastro_jdCarros"/>
+          <widget class="QLineEdit" name="txt_contratos_cadastro_idCarros"/>
          </item>
          <item row="2" column="0">
           <widget class="QLabel" name="lbl_contratos_cadastro_tipo">
@@ -1973,7 +2030,7 @@ p, li { white-space: pre-wrap; }
       </rect>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros_6">
       <attribute name="title">
