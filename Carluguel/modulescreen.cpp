@@ -7,9 +7,9 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->setupUi(this);
 
     // Preenche listas com valores arbritratios
-    dbCarros.append(new Carro(100,0, "Corsa", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(50,0, "HB20", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
-    dbCarros.append(new Carro(85,0, "Toroto", "AMM", "A", "asd", 1, StatusCarro::Disponivel));
+    dbCarros.append(new Carro(100,0, "A45T", "AMM-2019", "Volkswagen - Golf GTI", "asd", 1, StatusCarro::Disponivel));
+    dbCarros.append(new Carro(50,0, "B67R", "MCJ-2819", "Volkswagen - Polo", "asd", 1, StatusCarro::Disponivel));
+    dbCarros.append(new Carro(85,0, "C11C", "QIU-1291", "Volkswagen - Gol", "asd", 1, StatusCarro::Disponivel));
 
     Endereco endereco;
     QDate data = QDate::currentDate();
@@ -31,6 +31,8 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_clientes_registros->setColumnWidth(2, 175);
     ui->tbl_clientes_registros->verticalHeader()->setDefaultSectionSize(24);
     ui->tbl_clientes_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    ui->tbl_carros_registros->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     CarregaListaCarros();
     CarregaListaClientes();
