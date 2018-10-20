@@ -34,6 +34,8 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_clientes_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //Contratos
+    ui->tbl_contratos_registros->verticalHeader()->setDefaultSectionSize(24);
+    ui->tbl_contratos_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     CarregaListaCarros();
     CarregaListaClientes();
@@ -157,7 +159,7 @@ void ModuleScreen::on_tbl_carros_registros_cellDoubleClicked(int row, int column
     ui->lbl_carros_cadastro_id->setText(QString::number(idCarro));
 
     Carro *atual = nullptr;
-    QLinkedList<Carro*>::Iterator iter = dbCarros.begin();
+    auto iter = dbCarros.begin();
     while(iter != dbCarros.end()){
         atual = iter.i->t;
         if(atual->getMeuID() == idCarro){
@@ -166,7 +168,6 @@ void ModuleScreen::on_tbl_carros_registros_cellDoubleClicked(int row, int column
         ++iter;
     }
     if(atual != nullptr){
-       //😋🐦🌂 🥃⛱📦📁🇩🇪
         ui->tab_carros->setCurrentIndex(1);
         ui->cbx_carros_cadstro_cor->setCurrentIndex(atual->getCor());
         ui->cbx_carros_cadstro_status->setCurrentIndex(atual->getDisponibilidade());
@@ -319,6 +320,109 @@ void ModuleScreen::on_tab_clientes_currentChanged(int index)
     }
 }
 
+void ModuleScreen::on_tbl_clientes_registros_cellDoubleClicked(int row, int column)
+{
+    unsigned int codigo = ui->tbl_clientes_registros->item(row, 0)->text().toUInt();
+    auto iter = dbClientes.begin();
+    bool found = false;
+    Cliente *atual = nullptr;
+    while(iter != dbClientes.end() && !found){
+        if(iter.i->t->getMeuID() == codigo){
+            atual = iter.i->t;
+            found = true;
+        }
+        ++iter;
+    }
+    if(found){
+        ui->tab_clientes->setCurrentIndex(1);
+        ui->lbl_clientes_cadastro_id->setText(QString::number(atual->getMeuID()));
+        ui->txt_clientes_cadastro_nome->setText(atual->getNome());
+        ui->txt_clientes_cadastro_CPF->setText(atual->getCPF());
+        ui->txt_clientes_cadastro_rua->setText(atual->getEndereco().getRua());
+        ui->txt_clientes_registro_bairro->setText(atual->getEndereco().getBairro());
+        ui->txt_clientes_registro_cidade->setText(atual->getEndereco().getCidade());
+        ui->dtf_clientes_cadastro_nascimento->setDate(atual->getDataNacimento());
+        ui->sbx_clientes_cadastro_CEP->setValue(atual->getEndereco().getCEP());
+        ui->sbx_clientes_cadastro_numero->setValue(atual->getEndereco().getNumero());
+        ui->cb_clientes_cadastro_conceito->setCurrentIndex(atual->getConceito());
+        ui->lbl_clientes_cadastro_conceito_display->setText(
+                    atual->getConceito() == 0 ? "Ruim" :
+                    atual->getConceito() == 1 ? "Mediano" :
+                    atual->getConceito() == 2 ? "Bom" : "Ótimo");
+    }
+}
+
+void ModuleScreen::on_btn_clientes_cadastro_gravar_clicked()
+{
+    unsigned int codigo = ui->lbl_clientes_cadastro_id->text().toUInt();
+    auto iter = dbClientes.begin();
+    bool found = false;
+    Cliente *atual = nullptr;
+    while(iter != dbClientes.end() && !found){
+        if(iter.i->t->getMeuID() == codigo){
+            atual = iter.i->t;
+            found = true;
+        }
+        ++iter;
+    }
+    if(found){
+        atual->setConceito((ConceitoCliente)ui->cb_clientes_cadastro_conceito->currentIndex());
+        atual->setCPF(ui->txt_clientes_cadastro_CPF->text());
+        atual->setDataNacimento(ui->dtf_clientes_cadastro_nascimento->date());
+        atual->setNome(ui->txt_clientes_cadastro_nome->text());
+        Endereco novoEndereco;
+
+        novoEndereco.setBairro(ui->txt_clientes_registro_bairro->text());
+        novoEndereco.setCEP(ui->sbx_clientes_cadastro_CEP->value());
+        novoEndereco.setCidade(ui->txt_clientes_registro_cidade->text());
+        novoEndereco.setNumero(ui->sbx_clientes_cadastro_numero->value());
+        novoEndereco.setRua(ui->txt_clientes_cadastro_rua->text());
+
+        atual->setEndereco(novoEndereco);
+    }
+    ui->tab_clientes->setCurrentIndex(0);
+}
+
+void ModuleScreen::on_btn_clientes_cadastro_novo_clicked()
+{
+    Endereco novoEndereco;
+
+    novoEndereco.setBairro(ui->txt_clientes_registro_bairro->text());
+    novoEndereco.setCEP(ui->sbx_clientes_cadastro_CEP->value());
+    novoEndereco.setCidade(ui->txt_clientes_registro_cidade->text());
+    novoEndereco.setNumero(ui->sbx_clientes_cadastro_numero->value());
+    novoEndereco.setRua(ui->txt_clientes_cadastro_rua->text());
+
+    Cliente *atual = new Cliente(
+                novoEndereco,
+                ui->txt_clientes_cadastro_nome->text(),
+                ui->txt_clientes_cadastro_CPF->text(),
+                ui->dtf_clientes_cadastro_nascimento->date(),
+                (ConceitoCliente)ui->cb_clientes_cadastro_conceito->currentIndex()
+                );
+    dbClientes.append(atual);
+    ui->tab_clientes->setCurrentIndex(0);
+}
+
+void ModuleScreen::on_btn_clientes_cadastro_excluir_clicked()
+{
+    unsigned int codigo = ui->lbl_clientes_cadastro_id->text().toUInt();
+    auto iter = dbClientes.begin();
+    bool found = false;
+    Cliente *atual = nullptr;
+    while(iter != dbClientes.end() && !found){
+        if(iter.i->t->getMeuID() == codigo){
+            atual = iter.i->t;
+            found = true;
+        }
+        ++iter;
+    }
+    if(found && atual != nullptr){
+        dbClientes.removeOne(atual);
+    }
+    ui->tab_clientes->setCurrentIndex(0);
+}
+
 void ModuleScreen::on_txt_clientes_registros_filtro_nome_textChanged(const QString &arg1)
 {
     CarregaListaClientes();
@@ -415,3 +519,4 @@ void ModuleScreen::CarregaListaContratos()
         ++iter2;
     }
 }
+

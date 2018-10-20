@@ -15,7 +15,7 @@ public:
     Pessoa();
     Pessoa(Endereco endereco, QString nome, QString CPF, QDate nacimento);
     virtual ~Pessoa();
-    Endereco getEndereco() const;
+    Endereco getEndereco()const ;
     void setEndereco(const Endereco &value);
     QString getNome() const;
     void setNome(const QString &value);

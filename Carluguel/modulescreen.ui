@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
   <widget class="QTabWidget" name="tab_modulos">
    <property name="geometry">
     <rect>
@@ -69,7 +72,7 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -549,8 +552,8 @@
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -1445,7 +1448,7 @@ p, li { white-space: pre-wrap; }
          <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
         </property>
         <property name="minimum">
-         <number>10000000</number>
+         <number>0</number>
         </property>
         <property name="maximum">
          <number>99999999</number>
@@ -1454,7 +1457,7 @@ p, li { white-space: pre-wrap; }
          <number>1</number>
         </property>
         <property name="value">
-         <number>10000000</number>
+         <number>0</number>
         </property>
        </widget>
        <widget class="QLineEdit" name="txt_clientes_cadastro_rua">
@@ -1488,7 +1491,7 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </widget>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="cb_clientes_cadastro_conceito">
        <property name="geometry">
         <rect>
          <x>820</x>
@@ -1518,7 +1521,7 @@ p, li { white-space: pre-wrap; }
         </property>
        </item>
       </widget>
-      <widget class="QPushButton" name="btn_carros_cadastro_novo_2">
+      <widget class="QPushButton" name="btn_clientes_cadastro_gravar">
        <property name="geometry">
         <rect>
          <x>630</x>
@@ -1531,7 +1534,7 @@ p, li { white-space: pre-wrap; }
         <string>Gravar</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_carros_cadastro_novo_3">
+      <widget class="QPushButton" name="btn_clientes_cadastro_novo">
        <property name="geometry">
         <rect>
          <x>730</x>
@@ -1544,7 +1547,7 @@ p, li { white-space: pre-wrap; }
         <string>Novo</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btn_carros_cadastro_novo_4">
+      <widget class="QPushButton" name="btn_clientes_cadastro_excluir">
        <property name="geometry">
         <rect>
          <x>830</x>
@@ -1576,6 +1579,9 @@ p, li { white-space: pre-wrap; }
        <height>560</height>
       </rect>
      </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -1591,6 +1597,9 @@ p, li { white-space: pre-wrap; }
          <width>661</width>
          <height>511</height>
         </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
        </property>
        <property name="alternatingRowColors">
         <bool>true</bool>
@@ -1717,6 +1726,9 @@ p, li { white-space: pre-wrap; }
          <width>241</width>
          <height>511</height>
         </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
        </property>
        <property name="title">
         <string>Filtros</string>
@@ -1910,7 +1922,7 @@ p, li { white-space: pre-wrap; }
         </rect>
        </property>
        <property name="title">
-        <string>Dados do Contrato</string>
+        <string>Financeiro</string>
        </property>
        <widget class="QWidget" name="layoutWidget_5">
         <property name="geometry">
@@ -2028,6 +2040,9 @@ p, li { white-space: pre-wrap; }
        <width>950</width>
        <height>560</height>
       </rect>
+     </property>
+     <property name="autoFillBackground">
+      <bool>true</bool>
      </property>
      <property name="currentIndex">
       <number>0</number>
@@ -2287,59 +2302,74 @@ p, li { white-space: pre-wrap; }
        <property name="title">
         <string>Informações da Conta</string>
        </property>
-       <widget class="QWidget" name="layoutWidget_16">
+       <widget class="QLabel" name="label_33">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>30</y>
-          <width>342</width>
-          <height>98</height>
+          <x>22</x>
+          <y>32</y>
+          <width>58</width>
+          <height>16</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_11">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_10">
-           <item>
-            <widget class="QLabel" name="label_33">
-             <property name="text">
-              <string>Envolvido:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_34">
-             <property name="text">
-              <string>Valor: </string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_35">
-             <property name="text">
-              <string>Referente à:</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QGridLayout" name="gridLayout_29">
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_30">
-             <item row="2" column="0">
-              <widget class="QLineEdit" name="txt_clietes_registros_nome_14"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="QLineEdit" name="txt_clietes_registros_nome_15"/>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLineEdit" name="txt_clietes_registros_nome_16"/>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-        </layout>
+        <property name="text">
+         <string>Envolvido:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_35">
+        <property name="geometry">
+         <rect>
+          <x>22</x>
+          <y>100</y>
+          <width>72</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Referente à:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_34">
+        <property name="geometry">
+         <rect>
+          <x>22</x>
+          <y>70</y>
+          <width>39</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Valor: </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clietes_registros_nome_14">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>91</y>
+          <width>170</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clietes_registros_nome_15">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>33</y>
+          <width>170</width>
+          <height>22</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="txt_clietes_registros_nome_16">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>62</y>
+          <width>170</width>
+          <height>22</height>
+         </rect>
+        </property>
        </widget>
       </widget>
       <widget class="QGroupBox" name="groupBox_22">
@@ -2354,53 +2384,54 @@ p, li { white-space: pre-wrap; }
        <property name="title">
         <string>Dados do Contrato</string>
        </property>
-       <widget class="QWidget" name="layoutWidget_17">
+       <widget class="QLabel" name="label_36">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>30</y>
-          <width>342</width>
-          <height>98</height>
+          <x>22</x>
+          <y>32</y>
+          <width>35</width>
+          <height>16</height>
          </rect>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_12">
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_11">
-           <item>
-            <widget class="QLabel" name="label_36">
-             <property name="text">
-              <string>Valor:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_38">
-             <property name="text">
-              <string>Data do Pamento</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <layout class="QGridLayout" name="gridLayout_31">
-           <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_32">
-             <item row="1" column="0">
-              <widget class="QDateEdit" name="dateEdit_10"/>
-             </item>
-             <item row="0" column="0">
-              <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
-               <property name="maximum">
-                <double>10000000000000000.000000000000000</double>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-        </layout>
+        <property name="text">
+         <string>Valor:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_38">
+        <property name="geometry">
+         <rect>
+          <x>22</x>
+          <y>70</y>
+          <width>98</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Data do Pamento:</string>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="doubleSpinBox_5">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>33</y>
+          <width>149</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="maximum">
+         <double>10000000000000000.000000000000000</double>
+        </property>
+       </widget>
+       <widget class="QDateEdit" name="dateEdit_10">
+        <property name="geometry">
+         <rect>
+          <x>197</x>
+          <y>60</y>
+          <width>92</width>
+          <height>22</height>
+         </rect>
+        </property>
        </widget>
       </widget>
      </widget>

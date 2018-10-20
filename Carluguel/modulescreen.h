@@ -58,6 +58,14 @@ private slots:
 
     void on_btn_contratos_cadastro_novo_clicked();
 
+    void on_tbl_clientes_registros_cellDoubleClicked(int row, int column);
+
+    void on_btn_clientes_cadastro_gravar_clicked();
+
+    void on_btn_clientes_cadastro_novo_clicked();
+
+    void on_btn_clientes_cadastro_excluir_clicked();
+
 private:
     Ui::ModuleScreen *ui;
 };
