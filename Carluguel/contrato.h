@@ -8,21 +8,22 @@ class Contrato
 private:
     unsigned int meuID;
     unsigned int idCarro;
-    double valor;
     QDate inicio;
     QDate fim;
     short tipo;
+protected:
+        double valor;
 public:
     static unsigned int ID;
     static bool AutoInc();
     Contrato();
     virtual ~Contrato();
-    Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim, short tipo);
+    Contrato(unsigned int idCarro, QDate inicio, QDate fim, short tipo);
     unsigned int getMeuID() const;
     unsigned int getIdCarro() const;
     void setIdCarro(unsigned int value);
-    double getValor() const;
-    void setValor(double value);
+    virtual double getValor() const = 0;
+    virtual void setValor(double value, int mod) = 0;
     QDate getInicio() const;
     void setInicio(const QDate &value);
     QDate getFim() const;

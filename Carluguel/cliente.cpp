@@ -17,6 +17,16 @@ unsigned int Cliente::getMeuID() const
     return meuID;
 }
 
+int Cliente::getPercDesc() const
+{
+    return percDesc;
+}
+
+void Cliente::setPercDesc(int value)
+{
+    percDesc = value;
+}
+
 bool Cliente::AutoInc()
 {
     ID++;

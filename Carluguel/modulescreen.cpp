@@ -345,6 +345,7 @@ void ModuleScreen::on_tbl_clientes_registros_cellDoubleClicked(int row, int colu
         ui->sbx_clientes_cadastro_CEP->setValue(atual->getEndereco().getCEP());
         ui->sbx_clientes_cadastro_numero->setValue(atual->getEndereco().getNumero());
         ui->cb_clientes_cadastro_conceito->setCurrentIndex(atual->getConceito());
+        ui->sbx_clientes_cadastro_desconto->setValue(atual->getPercDesc());
         ui->lbl_clientes_cadastro_conceito_display->setText(
                     atual->getConceito() == 0 ? "Ruim" :
                     atual->getConceito() == 1 ? "Mediano" :
@@ -370,6 +371,7 @@ void ModuleScreen::on_btn_clientes_cadastro_gravar_clicked()
         atual->setCPF(ui->txt_clientes_cadastro_CPF->text());
         atual->setDataNacimento(ui->dtf_clientes_cadastro_nascimento->date());
         atual->setNome(ui->txt_clientes_cadastro_nome->text());
+        atual->setPercDesc(ui->sbx_clientes_cadastro_desconto->value());
         Endereco novoEndereco;
 
         novoEndereco.setBairro(ui->txt_clientes_registro_bairro->text());
@@ -400,6 +402,7 @@ void ModuleScreen::on_btn_clientes_cadastro_novo_clicked()
                 ui->dtf_clientes_cadastro_nascimento->date(),
                 (ConceitoCliente)ui->cb_clientes_cadastro_conceito->currentIndex()
                 );
+    atual->setPercDesc(ui->sbx_clientes_cadastro_desconto->value());
     dbClientes.append(atual);
     ui->tab_clientes->setCurrentIndex(0);
 }
@@ -460,25 +463,38 @@ void ModuleScreen::on_tab_contratos_currentChanged(int index)
 void ModuleScreen::on_btn_contratos_cadastro_novo_clicked()
 {
     if(ui->cb_contratos_cadastro_tipo->currentIndex() == 0) {
+
+        auto idCliente = ui->txt_contratos_cadastro_idPartic->text().toUInt();
+        Cliente *atual = nullptr;
+        auto iter = dbClientes.begin();
+        while(iter != dbClientes.end()){
+            if(iter.i->t->getMeuID() == idCliente)
+                atual = iter.i->t;
+            ++iter;
+        }
+        if(atual==nullptr){
+            QMessageBox::warning(this, "Aviso!", "Cliente não encontrado!");
+            return;
+        }
         Aluguel *novoAluguel = new Aluguel(
                     ui->txt_contratos_cadastro_idCarros->text().toUInt(),
-                    ui->dsb_contratos_cadastro_valor->text().toDouble(),
                     ui->de_contratos_cadastro_inicio->date(),
                     ui->de_contratos_cadastro_fim->date(),
-                    ui->txt_contratos_cadastro_idPartic->text().toUInt(),
+                    idCliente,
                     0
         );
+        novoAluguel->setValor(ui->dsb_contratos_cadastro_valor->value(), atual->getPercDesc());
         if(novoAluguel != nullptr)
             dbAlugueis.append(novoAluguel);
     } else if(ui->cb_contratos_cadastro_tipo->currentIndex() == 1) {
         Manuten *novaManuten = new Manuten(
                     ui->txt_contratos_cadastro_idCarros->text().toUInt(),
-                    ui->dsb_contratos_cadastro_valor->text().toDouble(),
                     ui->de_contratos_cadastro_inicio->date(),
                     ui->de_contratos_cadastro_fim->date(),
                     ui->txt_contratos_cadastro_idPartic->text().toUInt(),
                     1
         );
+        novaManuten->setValor(ui->dsb_contratos_cadastro_valor->value(), 0);
         if(novaManuten != nullptr)
             dbManuten.append(novaManuten);
     }
@@ -502,6 +518,7 @@ void ModuleScreen::CarregaListaContratos()
         tabela->setItem(curRow, 2, new QTableWidgetItem(QString::number(atual->getIdCarro())));
         tabela->setItem(curRow, 3, new QTableWidgetItem(
                             atual->getTipo() == 0 ? "Aluguel" : "Manutenção"));
+        tabela->setItem(curRow, 4, new QTableWidgetItem(QString::number(atual->getValor())));
         ++iter;
     }
 
@@ -516,6 +533,7 @@ void ModuleScreen::CarregaListaContratos()
         tabela->setItem(curRow, 2, new QTableWidgetItem(QString::number(atual2->getIdCarro())));
         tabela->setItem(curRow, 3, new QTableWidgetItem(
                             atual2->getTipo() == 0 ? "Aluguel" : "Manutenção"));
+        tabela->setItem(curRow, 4, new QTableWidgetItem(QString::number(atual2->getValor())));
         ++iter2;
     }
 }

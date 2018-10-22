@@ -873,7 +873,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros">
       <property name="autoFillBackground">
@@ -1558,6 +1558,53 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="text">
         <string>Excluir</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>230</y>
+         <width>60</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Desconto:</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="sbx_clientes_cadastro_desconto">
+       <property name="geometry">
+        <rect>
+         <x>130</x>
+         <y>230</y>
+         <width>40</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="wrapping">
+        <bool>true</bool>
+       </property>
+       <property name="frame">
+        <bool>true</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="correctionMode">
+        <enum>QAbstractSpinBox::CorrectToNearestValue</enum>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="singleStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>0</number>
        </property>
       </widget>
      </widget>

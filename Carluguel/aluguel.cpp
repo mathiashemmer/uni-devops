@@ -20,7 +20,18 @@ Aluguel::~Aluguel()
 
 }
 
-Aluguel::Aluguel(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idCliente, short tipo) : Contrato(idCarro, valor, inicio, fim, tipo)
+Aluguel::Aluguel(unsigned int idCarro, QDate inicio, QDate fim, unsigned int idCliente, short tipo) : Contrato(idCarro, inicio, fim, tipo)
 {
     this->setIdCliente(idCliente);
+}
+
+double Aluguel::getValor() const
+{
+    return this->valor;
+}
+
+void Aluguel::setValor(double value, int mod)
+{
+    double desc = value * ((double)mod/100);
+    this->valor = value - desc;
 }

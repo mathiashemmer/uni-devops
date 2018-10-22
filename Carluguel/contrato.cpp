@@ -17,16 +17,6 @@ void Contrato::setIdCarro(unsigned int value)
     idCarro = value;
 }
 
-double Contrato::getValor() const
-{
-    return valor;
-}
-
-void Contrato::setValor(double value)
-{
-    valor = value;
-}
-
 QDate Contrato::getInicio() const
 {
     return inicio;
@@ -73,10 +63,9 @@ Contrato::~Contrato()
 
 }
 
-Contrato::Contrato(unsigned int idCarro, double valor, QDate inicio, QDate fim, short tipo)
+Contrato::Contrato(unsigned int idCarro, QDate inicio, QDate fim, short tipo)
 {
     this->setIdCarro(idCarro);
-    this->setValor(valor);
     this->setInicio(inicio);
     this->setFim(fim);
     this->setTipo(tipo);

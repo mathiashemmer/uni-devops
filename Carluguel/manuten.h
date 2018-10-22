@@ -10,7 +10,9 @@ private:
 public:
     Manuten();
     ~Manuten();
-    Manuten(unsigned int idCarro, double valor, QDate inicio, QDate fim, unsigned int idTerceiro, short tipo);
+    Manuten(unsigned int idCarro, QDate inicio, QDate fim, unsigned int idTerceiro, short tipo);
+    double getValor() const;
+    void setValor(double value, int mod);
     unsigned int getIdTerceiro() const;
     void setIdTerceiro(unsigned int value);
 };
