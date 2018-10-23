@@ -7,6 +7,7 @@
 #include <cliente.h>
 #include <aluguel.h>
 #include <manuten.h>
+#include <financeiro.h>
 
 namespace Ui {
 class ModuleScreen;
@@ -24,6 +25,7 @@ public:
     QLinkedList<Cliente*> dbClientes;
     QLinkedList<Aluguel*> dbAlugueis;
     QLinkedList<Manuten*> dbManuten;
+    QLinkedList<Financeiro*> dbFinanceiro;
 
     // Auxiliares
     void CarregaListaCarros();
@@ -34,6 +36,9 @@ public:
 
     void CarregaListaContratos();
     void AjustaPadraoEntradaContratos();
+
+    void CarregaListaFinanceiro();
+    void AjustaPadraoEntradaFinanceiro();
 
 private slots:
     void on_tab_carros_currentChanged(int index);
@@ -65,6 +70,14 @@ private slots:
     void on_btn_clientes_cadastro_novo_clicked();
 
     void on_btn_clientes_cadastro_excluir_clicked();
+
+    void on_tab_financeiro_currentChanged(int index);
+
+    void on_btn_financeiro_cadastro_novo_clicked();
+
+    void on_tbl_financeiro_registros_cellDoubleClicked(int row, int column);
+
+    void on_btn_financeiro_cadastro_excluir_clicked();
 
 private:
     Ui::ModuleScreen *ui;

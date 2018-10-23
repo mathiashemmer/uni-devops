@@ -17,6 +17,9 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     dbClientes.append(new Cliente(endereco, "Alex", "987654321", data, ConceitoCliente::Mediano));
     dbClientes.append(new Cliente(endereco, "Cleberson", "159753", data, ConceitoCliente::Otimo));
 
+    dbFinanceiro.append(new Financeiro(5, "aluguel tal", 0, 195.23, QDate::currentDate()));
+    dbFinanceiro.append(new Financeiro(3, "coisa doida", 1, 333.33, QDate::currentDate()));
+
 
     // Setup das listas-----------------------
 
@@ -37,9 +40,12 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_contratos_registros->verticalHeader()->setDefaultSectionSize(24);
     ui->tbl_contratos_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
+    //Financeiro
+
     CarregaListaCarros();
     CarregaListaClientes();
     CarregaListaContratos();
+    CarregaListaFinanceiro();
 }
 
 ModuleScreen::~ModuleScreen()
@@ -519,6 +525,8 @@ void ModuleScreen::CarregaListaContratos()
         tabela->setItem(curRow, 3, new QTableWidgetItem(
                             atual->getTipo() == 0 ? "Aluguel" : "Manutenção"));
         tabela->setItem(curRow, 4, new QTableWidgetItem(QString::number(atual->getValor())));
+        tabela->setItem(curRow, 5, new QTableWidgetItem(atual->getInicio().toString("yyyy.MM.dd")));
+        tabela->setItem(curRow, 6, new QTableWidgetItem(atual->getFim().toString("yyyy.MM.dd")));
         ++iter;
     }
 
@@ -534,7 +542,113 @@ void ModuleScreen::CarregaListaContratos()
         tabela->setItem(curRow, 3, new QTableWidgetItem(
                             atual2->getTipo() == 0 ? "Aluguel" : "Manutenção"));
         tabela->setItem(curRow, 4, new QTableWidgetItem(QString::number(atual2->getValor())));
+        tabela->setItem(curRow, 5, new QTableWidgetItem(atual->getInicio().toString("dd.MM.yyyy")));
+        tabela->setItem(curRow, 6, new QTableWidgetItem(atual->getFim().toString("dd.MM.yyyy")));
         ++iter2;
     }
 }
 
+///////////////////////////////////////////
+// FINANCEIRO - CONTAS A PAGAR E RECEBER //
+///////////////////////////////////////////
+
+
+void ModuleScreen::AjustaPadraoEntradaFinanceiro()
+{
+    QDate data = QDate::currentDate();
+    ui->txt_financeiro_cadastro_envolvido->setText("");
+    ui->txt_financeiro_cadastro_referente->setText("");
+    ui->cb_financeiro_cadastro_tipo->setCurrentIndex(0);
+    ui->dsb_financeiro_cadastro_valor->setValue(150.00);
+    ui->de_financeiro_cadastro_datapag->setDate(data);
+    ui->de_contratos_cadastro_inicio->setDate(data);
+}
+
+void ModuleScreen::on_tab_financeiro_currentChanged(int index)
+{
+    if(index == 0)
+    {
+        AjustaPadraoEntradaFinanceiro();
+    }
+}
+
+void ModuleScreen::CarregaListaFinanceiro()
+{
+
+    ui->tbl_financeiro_registros->setRowCount(0);
+    auto tabela = ui->tbl_financeiro_registros;
+    auto iter = dbFinanceiro.begin();
+    Financeiro *atual = nullptr;
+    while(iter != dbFinanceiro.end()) {
+        atual = iter.i->t;
+        int curRow = tabela->rowCount();
+        tabela->insertRow(curRow);
+        tabela->setItem(curRow, 0, new QTableWidgetItem(QString::number(atual->getMeuID())));
+        tabela->setItem(curRow, 1, new QTableWidgetItem(QString::number(atual->getIdEnvolvido())));
+        tabela->setItem(curRow, 2, new QTableWidgetItem(atual->getReferente()));
+        tabela->setItem(curRow, 3, new QTableWidgetItem(
+                            atual->getTipo() == 0 ? "A Receber" : "Pagamento"));
+        tabela->setItem(curRow, 4, new QTableWidgetItem(QString::number(atual->getValor())));
+        tabela->setItem(curRow, 5, new QTableWidgetItem(atual->getData().toString("dd.MM.yyyy")));
+        ++iter;
+    }
+}
+
+void ModuleScreen::on_btn_financeiro_cadastro_novo_clicked()
+{
+    Financeiro *novaConta = new Financeiro(
+                ui->txt_financeiro_cadastro_envolvido->text().toUInt(),
+                ui->txt_financeiro_cadastro_referente->text(),
+                ui->cb_financeiro_cadastro_tipo->currentIndex(),
+                ui->dsb_financeiro_cadastro_valor->value(),
+                ui->de_financeiro_cadastro_datapag->date()
+    );
+    if(novaConta != nullptr)
+        dbFinanceiro.append(novaConta);
+    ui->tab_financeiro->setCurrentIndex(0);
+    CarregaListaFinanceiro();
+}
+
+void ModuleScreen::on_tbl_financeiro_registros_cellDoubleClicked(int row, int column)
+{
+    unsigned int codigo = ui->tbl_financeiro_registros->item(row, 0)->text().toUInt();
+    auto iter = dbFinanceiro.begin();
+    bool found = false;
+    Financeiro *atual = nullptr;
+    while(iter != dbFinanceiro.end() && !found){
+        if(iter.i->t->getMeuID() == codigo){
+            atual = iter.i->t;
+            found = true;
+        }
+        ++iter;
+    }
+    if(found){
+        ui->tab_financeiro->setCurrentIndex(1);
+        ui->lbl_financeiro_cadastro_id->setText(QString::number(atual->getMeuID()));
+        ui->txt_financeiro_cadastro_envolvido->setText(QString::number(atual->getIdEnvolvido()));
+        ui->txt_financeiro_cadastro_referente->setText(atual->getReferente());
+        ui->cb_financeiro_cadastro_tipo->setCurrentIndex(atual->getTipo());
+        ui->dsb_financeiro_cadastro_valor->setValue(atual->getValor());
+        ui->de_financeiro_cadastro_datapag->setDate(atual->getData());
+    }
+}
+
+void ModuleScreen::on_btn_financeiro_cadastro_excluir_clicked()
+{
+    unsigned int codigo = ui->lbl_financeiro_cadastro_id->text().toUInt();
+    auto iter = dbFinanceiro.begin();
+    bool found = false;
+    Financeiro *atual = nullptr;
+    while(iter != dbFinanceiro.end() && !found){
+        if(iter.i->t->getMeuID() == codigo){
+            atual = iter.i->t;
+            found = true;
+        }
+        ++iter;
+    }
+    if(found && atual != nullptr){
+        dbFinanceiro.removeOne(atual);
+    }
+    CarregaListaFinanceiro();
+    ui->tab_financeiro->setCurrentIndex(0);
+}
