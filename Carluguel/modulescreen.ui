@@ -2123,6 +2123,11 @@ p, li { white-space: pre-wrap; }
        </attribute>
        <column>
         <property name="text">
+         <string>ID</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
          <string>Envolvido</string>
         </property>
        </column>
@@ -2459,19 +2464,6 @@ p, li { white-space: pre-wrap; }
        </property>
        <property name="text">
         <string>Novo</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btn_financeiro_cadastro_gravar">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>500</y>
-         <width>100</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Gravar</string>
        </property>
       </widget>
      </widget>
