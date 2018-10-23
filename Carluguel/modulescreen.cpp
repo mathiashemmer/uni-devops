@@ -19,9 +19,10 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
 
     dbFinanceiro.append(new Financeiro(5, "aluguel tal", 0, 195.23, QDate::currentDate()));
     dbFinanceiro.append(new Financeiro(3, "coisa doida", 1, 333.33, QDate::currentDate()));
+    //----------------------------------------------------------------------------------------------------------------
+    //----------------------------------------------------------------------------------------------------------------
 
-
-    // Setup das listas-----------------------
+    // Setup das listas
 
     //Carros
     ui->tbl_carros_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -41,6 +42,10 @@ ModuleScreen::ModuleScreen(QWidget *parent) : QDialog(parent), ui(new Ui::Module
     ui->tbl_contratos_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     //Financeiro
+    ui->tbl_financeiro_registros->verticalHeader()->setDefaultSectionSize(24);
+    ui->tbl_financeiro_registros->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    //--------------------------------------------------------------------------------------------
+    //--------------------------------------------------------------------------------------------
 
     CarregaListaCarros();
     CarregaListaClientes();
@@ -442,9 +447,9 @@ void ModuleScreen::on_cbx_clientes_registros_filtro_conceito_currentIndexChanged
     CarregaListaClientes();
 }
 
-////////////////////////////////////////
-// CONTRATOS - ALUGUEIS E MANUTENÇÕES //
-////////////////////////////////////////
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+// CONTRATOS - ALUGUEL E MANUTENÇÃO
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 void ModuleScreen::AjustaPadraoEntradaContratos()
 {
@@ -548,9 +553,66 @@ void ModuleScreen::CarregaListaContratos()
     }
 }
 
-///////////////////////////////////////////
-// FINANCEIRO - CONTAS A PAGAR E RECEBER //
-///////////////////////////////////////////
+void ModuleScreen::on_btn_contratos_cadastro_excluir_clicked()
+{
+    if(ui->cb_contratos_cadastro_tipo->currentIndex() == 0){
+        auto iter = dbAlugueis.begin();
+        Aluguel *atual = nullptr;
+        while(iter != dbAlugueis.end()){
+            if(iter.i->t->getMeuID() == ui->lbl_contratos_cadastro_id->text().toUInt()){
+                atual = iter.i->t;
+            }
+            ++iter;
+        }if(atual != nullptr){
+            dbAlugueis.removeOne(atual);
+        }
+    }else{
+        auto iter = dbManuten.begin();
+        Manuten *atual = nullptr;
+        while(iter != dbManuten.end()){
+            if(iter.i->t->getMeuID() == ui->lbl_contratos_cadastro_id->text().toUInt()){
+                atual = iter.i->t;
+            }
+            ++iter;
+        }if(atual != nullptr){
+            dbManuten.removeOne(atual);
+        }
+    }
+    CarregaListaContratos();
+    ui->tab_contratos->setCurrentIndex(0);
+}
+
+void ModuleScreen::on_tbl_contratos_registros_cellDoubleClicked(int row, int column)
+{
+    QString tipo = ui->tbl_contratos_registros->item(row, 3)->text();
+    if(tipo == "Aluguel"){
+        auto iter = dbAlugueis.begin();
+        Aluguel *atual = nullptr;
+        while(iter != dbAlugueis.end()){
+            if(iter.i->t->getMeuID() == ui->lbl_contratos_cadastro_id->text().toUInt()){
+                atual = iter.i->t;
+            }
+            ++iter;
+        }if(atual != nullptr){
+            ui->lbl_contratos_cadastro_id->setText(QString::number(atual->getMeuID()));
+        }
+    }else{
+        auto iter = dbManuten.begin();
+        Manuten *atual = nullptr;
+        while(iter != dbManuten.end()){
+            if(iter.i->t->getMeuID() == ui->lbl_contratos_cadastro_id->text().toUInt()){
+                atual = iter.i->t;
+            }
+            ++iter;
+        }if(atual != nullptr){
+            ui->lbl_contratos_cadastro_id->setText(QString::number(atual->getMeuID()));
+        }
+    }
+    ui->tab_contratos->setCurrentIndex(1);
+}
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
+// FINANCEIRO - CONTAS A PAGAR E CONTAS A RECEBER
+//=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=//
 
 
 void ModuleScreen::AjustaPadraoEntradaFinanceiro()
@@ -652,3 +714,8 @@ void ModuleScreen::on_btn_financeiro_cadastro_excluir_clicked()
     CarregaListaFinanceiro();
     ui->tab_financeiro->setCurrentIndex(0);
 }
+
+
+
+
+

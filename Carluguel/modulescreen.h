@@ -79,6 +79,10 @@ private slots:
 
     void on_btn_financeiro_cadastro_excluir_clicked();
 
+    void on_btn_contratos_cadastro_excluir_clicked();
+
+    void on_tbl_contratos_registros_cellDoubleClicked(int row, int column);
+
 private:
     Ui::ModuleScreen *ui;
 };

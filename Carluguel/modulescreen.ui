@@ -72,7 +72,10 @@
     <enum>QTabWidget::Triangular</enum>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>3</number>
+   </property>
+   <property name="elideMode">
+    <enum>Qt::ElideNone</enum>
    </property>
    <widget class="QWidget" name="tab_modulos_carros">
     <property name="autoFillBackground">
@@ -273,9 +276,6 @@
        <property name="rowCount">
         <number>0</number>
        </property>
-       <attribute name="horizontalHeaderVisible">
-        <bool>false</bool>
-       </attribute>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
        </attribute>
@@ -552,8 +552,8 @@
            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:7.8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:7.8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
@@ -873,7 +873,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros">
       <property name="autoFillBackground">
@@ -906,9 +906,6 @@ p, li { white-space: pre-wrap; }
        <property name="cornerButtonEnabled">
         <bool>false</bool>
        </property>
-       <attribute name="horizontalHeaderVisible">
-        <bool>false</bool>
-       </attribute>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
        </attribute>
@@ -1630,7 +1627,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_contratos_registros">
       <attribute name="title">
@@ -1666,9 +1663,6 @@ p, li { white-space: pre-wrap; }
        <property name="cornerButtonEnabled">
         <bool>false</bool>
        </property>
-       <attribute name="horizontalHeaderVisible">
-        <bool>false</bool>
-       </attribute>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
        </attribute>
@@ -2030,19 +2024,6 @@ p, li { white-space: pre-wrap; }
         </layout>
        </widget>
       </widget>
-      <widget class="QPushButton" name="btn_contratos_cadastro_gravar">
-       <property name="geometry">
-        <rect>
-         <x>630</x>
-         <y>500</y>
-         <width>100</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Gravar</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="btn_contratos_cadastro_excluir">
        <property name="geometry">
         <rect>
@@ -2092,7 +2073,7 @@ p, li { white-space: pre-wrap; }
       <bool>true</bool>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tab_clientes_registros_6">
       <attribute name="title">
@@ -2122,9 +2103,6 @@ p, li { white-space: pre-wrap; }
        <property name="cornerButtonEnabled">
         <bool>false</bool>
        </property>
-       <attribute name="horizontalHeaderVisible">
-        <bool>false</bool>
-       </attribute>
        <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
        </attribute>
@@ -2360,7 +2338,7 @@ p, li { white-space: pre-wrap; }
           <x>10</x>
           <y>30</y>
           <width>351</width>
-          <height>112</height>
+          <height>90</height>
          </rect>
         </property>
         <layout class="QFormLayout" name="formLayout_2">
